@@ -28,6 +28,7 @@ This repository contains my solutions to various LeetCode problems of different 
 
 - [Live Preview](https://seesmof.github.io/leetcode-solutions/)
 - [LeetCode](https://leetcode.com/problemset/all/)
+- [Logo](https://www.flaticon.com/free-icons/coding)
 
 ## License
 
