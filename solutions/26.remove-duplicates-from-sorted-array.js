@@ -11,7 +11,12 @@
  */
 var removeDuplicates = function (nums) {
   const result = [];
-
-  return result.length;
+  for (let i = 0; i < nums.length; i++) {
+    if (nums[i] !== nums[i + 1]) {
+      result.push(nums[i]);
+    }
+  }
+  console.log(result);
+  return result;
 };
 // @lc code=end
