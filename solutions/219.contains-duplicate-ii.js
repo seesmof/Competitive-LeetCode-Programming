@@ -1,5 +1,10 @@
-// Given an integer array nums and an integer k, return true if there are two distinct indices i and j in the array such that nums[i] == nums[j] and abs(i - j) <= k.
+/*
+ * @lc app=leetcode id=219 lang=javascript
+ *
+ * [219] Contains Duplicate II
+ */
 
+// @lc code=start
 /**
  * @param {number[]} nums
  * @param {number} k
@@ -15,3 +20,4 @@ var containsNearbyDuplicate = function (nums, k) {
   }
   return false;
 };
+// @lc code=end
