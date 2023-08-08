@@ -1,9 +1,12 @@
-export function getSum(a: number, b: number): number {
-  // Good luck!
-  if (a === b) return a;
-  let sum: number = 0;
-  for (let i = Math.min(a, b); i <= Math.max(a, b); i++) {
-    sum += i;
+function isIsogram(str) {
+  //...
+  if (str.length === 0) return true;
+  for (let i = 0; i < str.length; i++) {
+    for (let j = i + 1; j < str.length; j++) {
+      if (str[i].toLowerCase() === str[j].toLowerCase()) {
+        return false;
+      }
+    }
   }
-  return sum;
+  return true;
 }
