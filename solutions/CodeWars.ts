@@ -1,18 +1,9 @@
-export function isValidWalk(walk: string[]) {
-  if (walk.length !== 10) return false;
-  let distanceFromStart = 0;
-  const calculateDistanceFromStart = ({
-    currentPosition,
-  }: {
-    currentPosition: number;
-  }) => {};
-
-  for (let i = 0; i < walk.length; i++) {
-    if (walk[i] === "n") {
-      distanceFromStart--;
-    } else if (walk[i] === "s") {
-      distanceFromStart++;
-    }
+export function getSum(a: number, b: number): number {
+  // Good luck!
+  if (a === b) return a;
+  let sum: number = 0;
+  for (let i = Math.min(a, b); i <= Math.max(a, b); i++) {
+    sum += i;
   }
-  return distanceFromStart === 0;
+  return sum;
 }
