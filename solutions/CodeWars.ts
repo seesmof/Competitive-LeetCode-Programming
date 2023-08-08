@@ -1,15 +1,7 @@
-function getCount(str) {
-  let vowels = 0;
-  for (let i = 0; i < str.length; i++) {
-    if (
-      str[i] === "a" ||
-      str[i] === "e" ||
-      str[i] === "i" ||
-      str[i] === "o" ||
-      str[i] === "u"
-    ) {
-      vowels++;
-    }
+function getMiddle(s) {
+  //Code goes here!
+  if (s.length % 2 === 0) {
+    return s[Math.floor(s.length / 2)] + s[Math.floor(s.length / 2) + 1];
   }
-  return vowels;
+  return s[Math.floor(s.length / 2)];
 }
