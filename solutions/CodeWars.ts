@@ -1,19 +1,18 @@
-import { MORSE_CODE } from "./preloaded";
-export function decodeMorse(morseCode: string): string {
-  let words = morseCode.split("   ");
-  const hasSpaces = /^\s*\s*$/g;
-  words = words.filter((word) => !hasSpaces.test(word));
-  const decodedWords: string[] = [];
-  for (let word of words) {
-    const letters = word.split(" ");
-    for (let i = 0; i < letters.length; i++) {
-      const letter = MORSE_CODE[letters[i]];
-      if (letter) {
-        letters[i] = letter;
-      }
+export function isValidWalk(walk: string[]) {
+  if (walk.length !== 10) return false;
+  let distanceFromStart = 0;
+  const calculateDistanceFromStart = ({
+    currentPosition,
+  }: {
+    currentPosition: number;
+  }) => {};
+
+  for (let i = 0; i < walk.length; i++) {
+    if (walk[i] === "n") {
+      distanceFromStart--;
+    } else if (walk[i] === "s") {
+      distanceFromStart++;
     }
-    word = letters.join("");
-    decodedWords.push(word);
   }
-  return decodedWords.join(" ");
+  return distanceFromStart === 0;
 }
