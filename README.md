@@ -2,7 +2,7 @@
 
 <div align="center">
   <a href="https://github.com/seesmof/">
-    <img src="./public/logo.png" alt="Logo" height="80">
+    <img src="./logo.png" alt="Logo" height="80">
   </a>
 
 <h1 align="center">LeetCode Solutions</h1>
@@ -12,23 +12,17 @@
 
 - [Table of contents](#table-of-contents)
 - [About](#about)
-- [Built with](#built-with)
 - [Links](#links)
 - [License](#license)
 
 ## About
 
-This repository contains my solutions to various LeetCode problems of different levels. Made with JavaScript.
-
-## Built with
-
-![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E)
+This repository contains my solutions to various LeetCode problems of different levels. Made with JavaScript, Python, TypeScript and whatever else I would decide to use for DSA.
 
 ## Links
 
-- [Live Preview](https://seesmof.github.io/leetcode-solutions/)
 - [LeetCode](https://leetcode.com/problemset/all/)
-- [Logo](https://www.flaticon.com/free-icons/coding)
+- [Logo](https://www.flaticon.com/)
 
 ## License
 
