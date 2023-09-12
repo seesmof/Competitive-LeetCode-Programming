@@ -14,4 +14,6 @@ class Solution:
 
         # yeah this does work, lets even submit it and see how we can do better.
         # okay, so there's also this extend method, which we can use just like nums.extend(nums) and that would be it, then we just return it.
+        # oh an by the way we ended up using only one for loop, so the time complexity is linear, which is good.
+        # we apparently can also just do a nums*2 which should achieve the same. but lets not concentrate over such an easy problem. well watch neetcode solution and move on.
 # @lc code=end
