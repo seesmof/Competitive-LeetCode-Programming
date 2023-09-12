@@ -1,3 +1,6 @@
+from collections import deque
+
+
 class TreeNode:
     def __init__(self, val=0):
         self.val = val
@@ -72,3 +75,41 @@ print()
 tree.postOrderTraversal()
 print()
 print(tree.find(3))
+print()
+
+
+class TreeNode:
+    def __init__(self, val=0):
+        self.val = val
+        self.left = None
+        self.right = None
+
+    def insert(self, value):
+        if value < self.val:
+            if self.left is None:
+                self.left = TreeNode(value)
+            else:
+                self.left.insert(value)
+        else:
+            if self.right is None:
+                self.right = TreeNode(value)
+            else:
+                self.right.insert(value)
+
+
+class Solution:
+    def findBottomLeftValue(self, root: TreeNode) -> int:
+        q = deque([root])
+        while q:
+            node = q.popleft()
+            if node.right:
+                q.append(node.right)
+            if node.left:
+                q.append(node.left)
+        return node.val
+
+
+tree = TreeNode(2)
+tree.insert(1)
+tree.insert(3)
+print(Solution().findBottomLeftValue(tree))
