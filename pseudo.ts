@@ -1,11 +1,5 @@
-const multiplyTwoNumbers = (a: number, b: number) => a * b;
+const sumUp = (n: number) => {
+  return (n * (n + 1)) / 2;
+};
 
-for (let i = 0; i < 10; i++) {
-  console.log(multiplyTwoNumbers(i, i));
-}
-
-let a, b, c;
-a = 2;
-b = 4;
-c = 6;
-console.log(a + b + c);
+console.log(sumUp(5));
