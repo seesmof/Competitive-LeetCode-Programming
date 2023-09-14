@@ -1,15 +1,26 @@
-def solveCoin(n):
-    up = 0
-    down = 0
-    tmp1, tmp2 = n, n
-    while tmp1 % 5 != 0:
-        tmp1 = tmp1 + 1
-        up += 1
-    while tmp2 % 5 != 0:
-        tmp2 = tmp2 - 1
-        down += 1
-    return min(up, down)
+def countMinMillions(n, m, c):
+    lenC = len(c)
+    results = []
+    for i in range(lenC):
+        for j in range(i+1, lenC):
+            results.append((c[i]+c[j]) % m)
+    minResults = []
+    print(f"\n{results}\n")
+    for i in range(len(results)):
+        if results[i] == 0:
+            continue
+        tmp = results[i]
+        print(f"\n{tmp}\n")
+        for j in range(i+1, len(results)):
+            tmp += results[j]
+            print(f"cur = {results[i]+results[j]}")
+        print()
+        minResults.append(tmp)
+    print(minResults)
+    return min(minResults)
 
 
-n = int(input())
-print(solveCoin(n) if n % 5 != 0 else 0)
+n, m = input().split()
+n, m = int(n), int(m)
+c = [int(i) for i in input().split()]
+print(countMinMillions(n, m, c))
