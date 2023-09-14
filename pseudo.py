@@ -1,8 +1,7 @@
 def solveCoin(n):
     up = 0
     down = 0
-    tmp1 = n
-    tmp2 = n
+    tmp1, tmp2 = n, n
     while tmp1 % 5 != 0:
         tmp1 = tmp1 + 1
         up += 1
