@@ -1,21 +1,10 @@
-MOD = 10 ** 9 + 7
-n = int(input())
-a = [int(x) for x in input().split()]
-
-
-def calculateNumberOfArrays(n, a):
-    for i in range(n):
-        try:
-            if 2 <= a[i] <= n - 1:
-                x = a[i]
-                a[i-1] += x
-                a[i+1] += x
-                a[i] = -x
-            else:
-                continue
-        except:
-            continue
-    return a
-
-
-print(calculateNumberOfArrays(n, a))
+# User function Template for python3
+class Solution:
+    def perfectSum(self, arr, n, sum):
+        MOD = 10**9+7
+        num = 0
+        for i in range(n):
+            for j in range(i+1, n):
+                if arr[i] + arr[j] == sum:
+                    num += 1
+        return num % MOD
