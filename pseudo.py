@@ -1,11 +1,11 @@
-def countDifferentNumbers(n):
-    seen = set()
-    for i in range(1, n+1):
-        see = n % i
-        if see not in seen:
-            seen.add(see)
-    return len(seen)
+def isPalindrome(s):
+    return s == s[::-1]
 
 
-n = int(input())
-print(countDifferentNumbers(n))
+def findPalindrome(s):
+    return s[::-1]
+
+
+s = input()
+t = findPalindrome(s)
+print(t if isPalindrome(s+t) and isPalindrome(t+s) else -1)
