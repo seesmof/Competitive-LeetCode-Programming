@@ -1,11 +1,16 @@
-def isPalindrome(s):
-    return s == s[::-1]
+def solveCoin(n):
+    up = 0
+    down = 0
+    tmp1 = n
+    tmp2 = n
+    while tmp1 % 5 != 0:
+        tmp1 = tmp1 + 1
+        up += 1
+    while tmp2 % 5 != 0:
+        tmp2 = tmp2 - 1
+        down += 1
+    return min(up, down)
 
 
-def findPalindrome(s):
-    return s[::-1]
-
-
-s = input()
-t = findPalindrome(s)
-print(t if isPalindrome(s+t) and isPalindrome(t+s) else -1)
+n = int(input())
+print(solveCoin(n) if n % 5 != 0 else 0)
