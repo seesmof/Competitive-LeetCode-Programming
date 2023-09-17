@@ -1,15 +1,24 @@
-def binary(arr, pin):
-    low = 0
-    high = len(arr)-1
+def searchInsert(nums: [int], target):
+    min, max = 0, len(nums) - 1
 
-    while low <= high:
-        mid = (low+high)//2
-        gues = arr[mid]
+    while min <= max:
+        mid = (min + max) // 2
+        guess = nums[mid]
 
-        if gues == pin:
+        if guess == target:
             return mid
-        if gues > pin:
-            high = mid-1
+        if guess > target:
+            max = mid - 1
         else:
-            low = mid+1
-    return -1
+            min = mid + 1
+
+    nums.append(target)
+    nums.sort()
+    nums.index(target)
+    print(nums, nums.index(target))
+    return nums.index(target)
+
+
+nums = [1, 3, 5, 6]
+target = 2
+print(searchInsert(nums, target))
