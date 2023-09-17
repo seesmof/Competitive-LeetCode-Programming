@@ -8,16 +8,16 @@
 # @lc code=start
 class Solution:
     def twoSum(self, numbers, target):
-        min, max = 0, len(numbers) - 1
+        left, right = 0, len(numbers) - 1
 
-        while min <= max:
-            sum = numbers[min] + numbers[max]
+        while left <= right:
+            sum = numbers[left] + numbers[right]
             if sum == target:
-                return [min + 1, max + 1]
+                return [left + 1, right + 1]
             if sum > target:
-                max -= 1
+                right -= 1
             else:
-                min += 1
+                left += 1
         return None
 
 
