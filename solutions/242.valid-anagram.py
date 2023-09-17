@@ -4,8 +4,11 @@
 # [242] Valid Anagram
 #
 
+
 # @lc code=start
 class Solution:
-    def isAnagram(self, s: str, t: str) -> bool:
+    def isAnagram(self, s, t):
         return sorted(s) == sorted(t)
+
+
 # @lc code=end

@@ -4,9 +4,12 @@
 # [217] Contains Duplicate
 #
 
+
 # @lc code=start
 class Solution:
-    def containsDuplicate(self, nums: List[int]) -> bool:
+    def containsDuplicate(self, nums):
         st = set(nums)
         return len(st) != len(nums)
+
+
 # @lc code=end
