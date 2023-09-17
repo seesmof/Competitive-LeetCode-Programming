@@ -1,13 +1,15 @@
-def findMedianSortedArrays(nums1, nums2) -> float:
-    arr = list(sorted(nums1 + nums2))
+def binary(arr, pin):
     low = 0
     high = len(arr)-1
-    mid = (low+high)//2
-    print(arr, arr[mid], )
-    if len(arr) % 2 != 0:
-        return arr[mid]
-    return arr[mid]+arr[mid+1]
 
+    while low <= high:
+        mid = (low+high)//2
+        gues = arr[mid]
 
-arr1, arr2 = [1, 2], [3, 4]
-print(findMedianSortedArrays(arr1, arr2))
+        if gues == pin:
+            return mid
+        if gues > pin:
+            high = mid-1
+        else:
+            low = mid+1
+    return -1
