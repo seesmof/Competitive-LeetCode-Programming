@@ -1,32 +1,13 @@
-import random
-
-
-def dumbSearch(items, item):
-    for i in range(len(items)):
-        if items[i] == item:
-            return i
-    return None
-
-
-def binarySearch(items, item):
+def findMedianSortedArrays(nums1, nums2) -> float:
+    arr = list(sorted(nums1 + nums2))
     low = 0
-    high = len(items)-1
-
-    while low <= high:
-        mid = (low+high)
-        guess = items[mid]
-
-        if guess == item:
-            return mid
-        if guess > item:
-            high = mid-1
-        else:
-            low = mid+1
-    return None
+    high = len(arr)-1
+    mid = (low+high)//2
+    print(arr, arr[mid], )
+    if len(arr) % 2 != 0:
+        return arr[mid]
+    return arr[mid]+arr[mid+1]
 
 
-items = list(range(1000))
-item = random.choice(items)
-print(
-    f"BIN. Searching for {item}. Result = {binarySearch(items, item)}")
-print(f"DUM. Searching for {item}. Result = {dumbSearch(items, item)}")
+arr1, arr2 = [1, 2], [3, 4]
+print(findMedianSortedArrays(arr1, arr2))
