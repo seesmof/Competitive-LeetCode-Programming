@@ -1,35 +1,32 @@
-import sys
+import random
 
 
-def sieve(n):
-    x = [1]*n
-    x[1] = 0
-
-    for i in range(2, n/2):
-        j = 2*i
-        while j < n:
-            x[j] = 0
-            j += i
-
-    return x
+def dumbSearch(items, item):
+    for i in range(len(items)):
+        if items[i] == item:
+            return i
+    return None
 
 
-def prime(n, x):
-    i = 1
-    j = 1
-    while j <= n:
-        if x[i] == 1:
-            j += 1
-        i += 1
-    return i-1
+def binarySearch(items, item):
+    low = 0
+    high = len(items)-1
+
+    while low <= high:
+        mid = (low+high)
+        guess = items[mid]
+
+        if guess == item:
+            return mid
+        if guess > item:
+            high = mid-1
+        else:
+            low = mid+1
+    return None
 
 
-x = sieve(10000)
-
-code = [1206, 301, 384, 5]
-key = [1, 1, 2, 2]
-
-sys.stdout.write("".join(chr(i) for i in [73, 83, 66, 78, 32, 61, 32]))
-
-for i in range(0, 4):
-    sys.stdout.write(str(prime(code[i], x)-key[i]))
+items = list(range(1000))
+item = random.choice(items)
+print(
+    f"BIN. Searching for {item}. Result = {binarySearch(items, item)}")
+print(f"DUM. Searching for {item}. Result = {dumbSearch(items, item)}")
