@@ -139,5 +139,13 @@ class DoublyLinkedList:
             if cur is None:
                 print(f"Element {data} not found.")
             elif cur.next is None:
-                cur.prev.next = None
+                tmp = self.head
+                while tmp.next is not None:
+                    tmp = tmp.next
+                tmp.prev.next = None
+                tmp.prev = None
             else:
+                cur.next = cur.prev.next
+                cur.next.prev = cur.prev
+                cur.next = None
+                cur.prev = None
