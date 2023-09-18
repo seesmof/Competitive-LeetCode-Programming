@@ -1,83 +1,143 @@
 """
-The array M[1: N] of positive integers is given, ordered in increasing order.
-
-Find the first positive integer that is not represented by the sum of any elements of this array, the sum can consist of one term, but each element of the array can be included only once.
+- Розроблюваний програмний проєкт має складатися з окремих класів, що реалізують структури даних двозв’язний список та купа (черга з пріоритетами). На найвищий рівень може бути передбачено графічну інтерфейсну взаємодію з користувачем для роботи зі створеними класами.
+- Клас, що реалізує двозв’язний список, має дозволяти виконувати наступні операції на основі окремих методів: додавання вузла в початок списку, додавання вузла після заданого, пошук вузла в списку, видалення вузла, виведення вузлів на екран з початку та з кінця.
+- Клас, що реалізує купу (чергу з пріоритетами), має дозволяти виконувати наступні операції на основі окремих методів: вставлення елементу, сортування елементів, побудова купи з невпорядкованого масиву, видалення елементу, сортування елементів із використанням купи, виведення елементів на екран.
+- Розробити окремий модуль програмного забезпечення для реалізації пірамідального сортування на основі розробленого класу.
+- Розв’язати індивідуальне завдання за допомогою розробленої реалізації пірамідального сортування. Вважати, що масиви даних зберігаються в файлах.
+  - Варіант: У відділі кадрів міститься інформація про захворювання співробітників, що включає: прізвище, ім’я, по батькові співробітника; відділ, посаду; вік; дату початку лікарняного; дату завершення лікарняного; хвороба. Вивести інформацію про всі хвороби, якими хворіли співробітники, за зменшенням кількості випадків.
 """
 
-arrs = [
-    {
-        "ans": 0,
-        "arr": {1, 2, 3, 4, 1},
-    },
-    {
-        "ans": 0,
-        "arr": {1, 2, 4, 7, 11},
-    },
-    {
-        "ans": 0,
-        "arr": {1, 3, 6, 10},
-    },
-    {
-        "ans": 0,
-        "arr": {1, 2, 3, 4, 5, 6, 7, 8, 9, 11, 12, 13},
-    },
-    {
-        "ans": -1,
-        "arr": {},
-    },
-    {
-        "ans": 0,
-        "arr": {1000, 2000, 3000},
-    },
-    {
-        "ans": 0,
-        "arr": {21, 28, 9, 91, 88, 100, 41, 66, 7, 20, 76, 38, 45, 22, 5, 1, 35},
-    },
-    {
-        "ans": 0,
-        "arr": {10, 12, 14, 16, 18, 20},
-    },
-]
+
+class Heap:
+    def __init__(self):
+        self.heap = []
 
 
-def checkForSum(arr: [int], target: int) -> bool:
-    min, max = 0, len(arr) - 1
+class EmployeeData:
+    def __init__(
+        self,
+        name: str,
+        department: str,
+        position: str,
+        age: int,
+        start_date: str,
+        end_date: str,
+        disease: str,
+    ):
+        self.name = name
+        self.department = department
+        self.position = position
+        self.age = age
+        self.start_date = start_date
+        self.end_date = end_date
+        self.disease = disease
 
-    while min <= max:
-        sum = arr[min] + arr[max]
-        if sum == target:
+
+class ListNode:
+    def __init__(self, data):
+        self.data = data
+        self.next = None
+        self.prev = None
+
+
+class DoublyLinkedList:
+    def __init__(self):
+        self.head = None
+
+    def isEmpty(self) -> bool:
+        if self.head is None:
             return True
-        if sum > target:
-            max -= 1
+        return False
+
+    def length(self) -> int:
+        cur = self.head
+        count = 0
+
+        while cur is not None:
+            count += 1
+            cur = cur.next
+
+        return count
+
+    def search(self, data: type(ListNode.data)):
+        cur = self.head
+
+        while cur is not None:
+            if cur.data == data:
+                return cur
+            cur = cur.next
+
+        return None
+
+    def prepend(self, data: type(ListNode.data)):
+        new = ListNode(data)
+
+        if self.isEmpty():
+            self.head = new
         else:
-            min += 1
-    return False
+            new.next = self.head
+            self.head.prev = new
+            self.head = new
 
+    def append(self, data: type(ListNode.data)):
+        new = ListNode(data)
 
-def findFirstEl(arr: [int]) -> int:
-    # Initialize a variable to keep track of the smallest positive integer
-    smallest_missing = 1
-
-    # Iterate through the array
-    for num in arr:
-        # If the current number is less than or equal to the smallest missing positive integer,
-        # update the smallest_missing by adding the current number to it.
-        if num <= smallest_missing:
-            smallest_missing += num
+        if self.isEmpty():
+            self.prepend(data)
         else:
-            # If the current number is greater than the smallest_missing, it means we found the first
-            # missing positive integer, so we can return it.
-            return smallest_missing
+            cur = self.head
+            while cur.next is not None:
+                cur = cur.next
+            cur.next = new
+            new.prev = cur
 
-    # If all elements in the array are accounted for, return the next positive integer.
-    return smallest_missing
+    def appendAfterElement(self, data: type(ListNode.data), element: ListNode):
+        tmp = self.head
+        while tmp is not None:
+            if tmp.data == element:
+                break
+            tmp = tmp.next
 
+        if tmp is not None:
+            new = ListNode(data)
+            new.next = tmp.next
+            new.prev = tmp
+            tmp.next = new
+            tmp.next.prev = new
+        else:
+            print(f"Element {element} not found.")
 
-def tests():
-    for a in arrs:
-        assert findFirstEl(a["arr"]) == a["ans"]
-    print("All test have passed")
+    def displayFromHead(self):
+        cur = self.head
+        while cur is not None:
+            print(cur.data, end=" ")
+            cur = cur.next
 
+    def displayFromTail(self):
+        cur = self.head
+        els = []
+        while cur.next is not None:
+            els.append(cur)
+            cur = cur.next
+        els.reverse()
+        for el in els:
+            print(el.data, end=" ")
 
-arr = sorted(arrs[-2]["arr"])
-print(f"{findFirstEl(arr)} in {arr}")
+    def delete(self, data: type(ListNode.data)):
+        if self.isEmpty():
+            print(f"List is empty, cannot delete any elements.")
+        elif self.length() == 1:
+            if self.head.data == data:
+                self.head = None
+
+        else:
+            cur = self.head
+            while cur is not None:
+                if cur.data == data:
+                    break
+                cur = cur.next
+            if cur is None:
+                print(f"Element {data} not found.")
+            elif cur.next is None:
+                cur.prev.next = None
+            else:
