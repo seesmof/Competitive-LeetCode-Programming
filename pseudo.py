@@ -1,11 +1,39 @@
-nums = [54, 61, 64, 51, 70, 50, 23, 94, 37, 36, 15, 57, 17, 66, 4]
-arr = [num for num in nums if num >= 60]
+import random
 
-
-arr = [
-    {"id": 1, "name": "Lola Glover", "age": 31},
-    {"id": 2, "name": "Brian Armstrong", "age": 24},
-    {"id": 3, "name": "Amelia Nunez", "age": 26},
+names = [
+    "Isabel Tran",
+    "John Glover",
+    "Mollie Rodgers",
+    "Julia Page",
+    "Eula Green",
+    "Hester Copeland",
+    "Landon Castillo",
 ]
-arr = [i for i in arr if i["id"] % 2 != 0]
-print(arr)
+names = sorted(names)
+
+
+def search(arr, target):
+    low, high = 0, len(arr) - 1
+
+    while low <= high:
+        mid = (low + high) // 2
+        guess = arr[mid]
+
+        if guess == target:
+            return mid
+        if guess > target:
+            high = mid - 1
+        else:
+            low = mid + 1
+
+    return -1
+
+
+guess = random.choice(names)
+print(f"\nSearching for \"{guess}\" in {', '.join([f'{name}' for name in names])}\n")
+result = search(names, guess)
+if result != -1:
+    print(f"Found at {result}")
+else:
+    print(f"Not found :(")
+print()
