@@ -29,5 +29,46 @@ def findFirstEl(arr: [int]) -> int:
     return -1
 
 
-ans = findFirstEl(m)
-print(f"\n{ans}\n")
+def tests():
+    arrs = [
+        {
+            "ans": 0,
+            "arr": [1, 2, 3, 4, 1],
+        },
+        {
+            "ans": 0,
+            "arr": [1, 2, 4, 7, 11],
+        },
+        {
+            "ans": 0,
+            "arr": [1, 3, 6, 10],
+        },
+        {
+            "ans": 0,
+            "arr": [1, 2, 3, 4, 5, 6, 7, 8, 9, 11, 12, 13],
+        },
+        {
+            "ans": -1,
+            "arr": [],
+        },
+        {
+            "ans": 0,
+            "arr": [1000, 2000, 3000],
+        },
+        {
+            "ans": 0,
+            "arr": [21, 28, 9, 91, 88, 100, 41, 66, 7, 20, 76, 38, 45, 22, 5, 1, 35],
+        },
+        {
+            "ans": 0,
+            "arr": [10, 12, 14, 16, 18, 20],
+        },
+    ]
+
+    for a in arrs:
+        assert findFirstEl(a["arr"]) == a["ans"]
+
+    print("All test have passed")
+
+
+tests()
