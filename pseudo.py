@@ -59,7 +59,7 @@ class DoublyLinkedList:
 
         return count
 
-    def search(self, data: type(ListNode.data)):
+    def search(self, data):
         cur = self.head
 
         while cur is not None:
@@ -69,7 +69,7 @@ class DoublyLinkedList:
 
         return None
 
-    def prepend(self, data: type(ListNode.data)):
+    def prepend(self, data):
         new = ListNode(data)
 
         if self.isEmpty():
@@ -79,7 +79,7 @@ class DoublyLinkedList:
             self.head.prev = new
             self.head = new
 
-    def append(self, data: type(ListNode.data)):
+    def append(self, data):
         new = ListNode(data)
 
         if self.isEmpty():
@@ -91,7 +91,7 @@ class DoublyLinkedList:
             cur.next = new
             new.prev = cur
 
-    def appendAfterElement(self, data: type(ListNode.data), element: ListNode):
+    def appendAfterElement(self, data, element: ListNode):
         tmp = self.head
         while tmp is not None:
             if tmp.data == element:
@@ -123,7 +123,7 @@ class DoublyLinkedList:
         for el in els:
             print(el.data, end=" ")
 
-    def delete(self, data: type(ListNode.data)):
+    def delete(self, data):
         if self.isEmpty():
             print(f"List is empty, cannot delete any elements.")
         elif self.length() == 1:
@@ -149,3 +149,38 @@ class DoublyLinkedList:
                 cur.next.prev = cur.prev
                 cur.next = None
                 cur.prev = None
+
+
+def heapsort(A):
+    def buildMaxHeap(A):
+        n = len(A)
+        for i in range(n // 2, 0, -1):
+            heapify(A, i, n)
+
+    def heapify(A, i, n):
+        left = 2 * i
+        right = 2 * i + 1
+        max_idx = i
+
+        if left <= n and A[left - 1] > A[max_idx - 1]:
+            max_idx = left
+
+        if right <= n and A[right - 1] > A[max_idx - 1]:
+            max_idx = right
+
+        if max_idx != i:
+            A[i - 1], A[max_idx - 1] = A[max_idx - 1], A[i - 1]
+            heapify(A, max_idx, n)
+
+    n = len(A)
+    buildMaxHeap(A)
+    for i in range(n, 0, -1):
+        A[0], A[i - 1] = A[i - 1], A[0]
+        n -= 1
+        heapify(A, 1, n)
+
+
+# Example usage:
+A = [4, 10, 3, 5, 1]
+heapsort(A)
+print(A)  # Output: [1, 3, 4, 5, 10]
