@@ -1,3 +1,5 @@
+import math
+
 #
 # @lc app=leetcode id=875 lang=python3
 #
@@ -9,24 +11,23 @@
 # @lc code=start
 class Solution:
     def minEatingSpeed(self, piles, h):
-        minAllowed, maxAllowed = min(piles), max(piles)
+        left, right = 1, max(piles)
+        res = right
 
-        for i in range(minAllowed, maxAllowed + 1):
-            currentIndex = 0
-            allowedHours = h
-            currentPiles = piles[:]
-            while allowedHours > 0:
-                if currentPiles[currentIndex] >= 0:
-                    currentPiles[currentIndex] -= i
-                    allowedHours -= 1
-                currentIndex = (
-                    0 if currentIndex == len(currentPiles) - 1 else currentIndex + 1
-                )
-            if allowedHours == 0 and currentPiles == [
-                x for x in currentPiles if x <= 0
-            ]:
-                return i
-        return -1
+        while left <= right:
+            mid = (left + right) // 2
+            hours = 0
+
+            for pile in piles:
+                hours += math.ceil(pile / mid)
+
+            if hours <= h:
+                res = min(res, mid)
+                right = mid - 1
+            else:
+                left = mid + 1
+
+        return res
 
 
 # @lc code=end
