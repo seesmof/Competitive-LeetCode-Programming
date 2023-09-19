@@ -12,6 +12,43 @@ class Heap:
     def __init__(self):
         self.heap = []
 
+    def build_max_heap(self):
+        n = len(self.heap)
+        for i in range(n // 2, 0, -1):
+            self._heapify(i, n)
+
+    def _heapify(self, i, n):
+        left = 2 * i
+        right = 2 * i + 1
+        max_idx = i
+
+        if left <= n and self.heap[left - 1] > self.heap[max_idx - 1]:
+            max_idx = left
+
+        if right <= n and self.heap[right - 1] > self.heap[max_idx - 1]:
+            max_idx = right
+
+        if max_idx != i:
+            self.heap[i - 1], self.heap[max_idx - 1] = (
+                self.heap[max_idx - 1],
+                self.heap[i - 1],
+            )
+            self._heapify(max_idx, n)
+
+    def heapsort(self):
+        n = len(self.heap)
+        self.build_max_heap()
+        for i in range(n, 0, -1):
+            self.heap[0], self.heap[i - 1] = self.heap[i - 1], self.heap[0]
+            n -= 1
+            self._heapify(1, n)
+
+
+heap = Heap()
+heap.heap = [1, 2, 3, 4, 5, 6, 7, 8]
+heap.heapsort()
+print(heap.heap)
+
 
 class EmployeeData:
     def __init__(
