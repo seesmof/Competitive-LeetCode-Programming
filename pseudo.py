@@ -1,9 +1,8 @@
-def countDown(n):
-    print(n)
-    if n <= 1:
-        return
+def factorial(n):
+    if n == 1:
+        return 1
     else:
-        countDown(n - 1)
+        return n * factorial(n - 1)
 
 
-countDown(3)
+print(factorial(3))
