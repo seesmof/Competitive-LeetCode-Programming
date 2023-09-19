@@ -27,6 +27,12 @@ def recursiveCountItems(arr: [int]) -> int:
 # recursively find the largest element
 def recursiveFindMax(arr: [int]) -> int:
     n = len(arr)
+    if n == 2:
+        return arr[0] if arr[0] > arr[1] else arr[1]
+    else:
+        return (
+            arr[0] if arr[0] > recursiveFindMax(arr[1:]) else recursiveFindMax(arr[1:])
+        )
 
 
 # recursively rewrite binary search
@@ -34,7 +40,7 @@ def recursiveBinarySearch(arr: [int], target: int) -> int:
     pass
 
 
-print(f"\nOriginla array: {arr}\n")
+print(f"\nOriginal array: {arr}\n")
 res = selectionSort(arr)
 print(f"Sorted arr: {res}")
 res = recursiveSum(arr)
@@ -49,9 +55,18 @@ print("\n")
 
 
 def recursiveFacotrial(n):
-    return 1 if n == 1 else n * recursiveFacotrial(n - 1)
+    return 1 if n < 2 else n * recursiveFacotrial(n - 1)
+
+
+def iterativeFactorial(n):
+    fac = 1
+    for i in range(1, n + 1):
+        fac *= i
+    return fac
 
 
 x = random.choice(range(12))
 res = recursiveFacotrial(x)
+print(f"{x}! = {res}")
+res = iterativeFactorial(x)
 print(f"{x}! = {res}")
