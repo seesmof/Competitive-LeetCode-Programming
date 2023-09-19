@@ -3,21 +3,16 @@
 #
 # [347] Top K Frequent Elements
 #
-
+# [1,1,1,2,2,3]
 # @lc code=start
 
 
 class Solution:
     def topKFrequent(self, nums: [int], k: int):
-        print(sorted(nums))
-        arr = list(set(nums))
+        arr = [{"count": 0, "num": x} for x in nums]
+        arr = []
         res = []
         print(arr)
-
-        for i in range(k):
-            res.append(arr[i % len(arr)])
-        res = sorted(res)
-        return res
 
 
 # @lc code=end
