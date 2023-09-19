@@ -1,18 +1,14 @@
-artists = {
-    "radiohead": 156,
-    "the black keys": 35,
-    "the strokes": 61,
-    "red hot chilli pepper": 231,
-    "nirvana": 176,
-}
-res = []
+def selectionSort(arr):
+    n = len(arr)
+    for i in range(n):
+        smallest = i
+        for j in range(i + 1, n):
+            if arr[j] < arr[smallest]:
+                smallest = j
+        arr[i], arr[smallest] = arr[smallest], arr[i]
 
-while artists:
-    maxValue = max(artists.values())
-    res.append(maxValue)
 
-    maxKey = [key for key, value in artists.items() if value == maxValue][0]
-
-    del artists[maxKey]
-
-print(res)
+arr = [31, 22, 15, 18, 26, 51, 92]
+print(arr)
+selectionSort(arr)
+print(arr)
