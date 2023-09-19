@@ -3,16 +3,30 @@
 #
 # [875] Koko Eating Bananas
 #
+# [3,6,7,11]
 
 
 # @lc code=start
 class Solution:
     def minEatingSpeed(self, piles, h):
-        # can we assume that h wont be less then a piles len?
-        if h == len(piles):
-            return max(piles)
-        else:
-            return max(piles) - 1
+        minAllowed, maxAllowed = min(piles), max(piles)
+
+        for i in range(minAllowed, maxAllowed + 1):
+            currentIndex = 0
+            allowedHours = h
+            currentPiles = piles[:]
+            while allowedHours > 0:
+                if currentPiles[currentIndex] >= 0:
+                    currentPiles[currentIndex] -= i
+                    allowedHours -= 1
+                currentIndex = (
+                    0 if currentIndex == len(currentPiles) - 1 else currentIndex + 1
+                )
+            if allowedHours == 0 and currentPiles == [
+                x for x in currentPiles if x <= 0
+            ]:
+                return i
+        return -1
 
 
 # @lc code=end
