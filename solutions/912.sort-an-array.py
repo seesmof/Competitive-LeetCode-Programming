@@ -7,15 +7,17 @@
 
 # @lc code=start
 class Solution:
-    def quickSort(self, arr):
-        if len(arr) < 2:
-            return arr
+    def quickSort(self, array: [int]) -> [int]:
+        numberOfItems = len(array)
+        if numberOfItems < 2:
+            return array
 
-        p = arr[len(arr) // 2]
-        less = [x for x in arr if x < p]
-        more = [x for x in arr if x >= p]
+        pivot = array[numberOfItems // 2]
+        lesserItems = [item for item in array if item < pivot]
+        equalItems = [item for item in array if item == pivot]
+        morerItems = [item for item in array if item > pivot]
 
-        return self.quickSort(less) + [p] + self.quickSort(more)
+        return self.quickSort(lesserItems) + equalItems + self.quickSort(morerItems)
 
     def sortArray(self, nums: [int]) -> [int]:
         return self.quickSort(nums)
