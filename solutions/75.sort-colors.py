@@ -7,7 +7,7 @@
 
 # @lc code=start
 class Solution:
-    def quickSort(self, arr: [int]) -> [int]:
+    def quickSort(self, arr):
         n = len(arr)
         if n < 2:
             return arr
@@ -17,17 +17,13 @@ class Solution:
         equal = [x for x in arr if x == p]
         more = [x for x in arr if x > p]
 
-        print(self.quickSort(less) + equal + self.quickSort(more))
         return self.quickSort(less) + equal + self.quickSort(more)
 
     def sortColors(self, nums: [int]) -> None:
         """
         Do not return anything, modify nums in-place instead.
         """
-        arr = nums[:]
-        arr = self.quickSort(arr)
-        nums = arr[:]
-        print(nums)
+        nums = self.quickSort(nums)
 
 
 # @lc code=end
