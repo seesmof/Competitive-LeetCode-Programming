@@ -36,8 +36,18 @@ def recursiveFindMax(arr: [int]) -> int:
 
 
 # recursively rewrite binary search
-def recursiveBinarySearch(arr: [int], target: int) -> int:
-    pass
+def recursiveBinarySearch(arr: [int], target: int, low: int, high: int) -> int:
+    if high >= low:
+        mid = (low + high) // 2
+        guess = arr[mid]
+        if guess == target:
+            return mid
+        if guess > target:
+            return recursiveBinarySearch(arr, target, low, mid - 1)
+        else:
+            return recursiveBinarySearch(arr, target, mid + 1, high)
+    else:
+        return -1
 
 
 print(f"\nOriginal array: {arr}\n")
@@ -49,8 +59,9 @@ res = recursiveCountItems(arr)
 print(f"Length: {res}")
 res = recursiveFindMax(arr)
 print(f"Max element: {res}")
-res = recursiveBinarySearch(arr, random.choice(arr))
-print(f"Found at index: {res}")
+el = random.choice(arr)
+res = recursiveBinarySearch(sorted(arr), el, 0, len(arr) - 1)
+print(f"Found {el} at index: {res}")
 print("\n")
 
 
