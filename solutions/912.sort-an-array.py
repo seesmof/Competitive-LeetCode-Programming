@@ -7,8 +7,18 @@
 
 # @lc code=start
 class Solution:
+    def quickSort(self, arr):
+        if len(arr) < 2:
+            return arr
+
+        p = arr[len(arr) // 2]
+        less = [x for x in arr if x < p]
+        more = [x for x in arr if x >= p]
+
+        return self.quickSort(less) + [p] + self.quickSort(more)
+
     def sortArray(self, nums: [int]) -> [int]:
-        return sorted(nums)
+        return self.quickSort(nums)
 
 
 # @lc code=end
