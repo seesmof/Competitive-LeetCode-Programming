@@ -1,9 +1,11 @@
-def findMissingNumber(arr):
-    arr = sorted(arr)
-    for i in range(len(arr) - 1):
-        if arr[i + 1] != arr[i] + 1:
-            return arr[i] + 1
-    return arr[-1] + 1
+def searchInRotatedArray(arr, target):
+    n = len(arr)
+    if n == 1:
+        return 0
+    for i in range(n):
+        if arr[i] == target:
+            return i
+    return -1
 
 
-print(findMissingNumber([1, 2, 4, 6, 3, 7, 8]))
+print(searchInRotatedArray([4, 5, 6, 7, 0, 1, 2], 0))
