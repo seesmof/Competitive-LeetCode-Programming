@@ -1,47 +1,47 @@
 {
   "Cordelia Fuller": {
     "name": "Cordelia Fuller",
-    "department": "",
-    "position": "",
+    "department": "Human Resources",
+    "position": "Manager",
     "age": 19,
-    "start_date": "",
-    "end_date": "",
-    "disease": ""
+    "start_date": "2020-01-01",
+    "end_date": "2023-01-01",
+    "disease": "Flu"
   },
   "Ollie Houston": {
     "name": "Ollie Houston",
-    "department": "",
-    "position": "",
+    "department": "Sales",
+    "position": "Sales Representative",
     "age": 29,
-    "start_date": "",
-    "end_date": "",
-    "disease": ""
+    "start_date": "2015-04-01",
+    "end_date": "2020-04-01",
+    "disease": "Chickenpox"
   },
   "Jean Higgins": {
     "name": "Jean Higgins",
-    "department": "",
-    "position": "",
+    "department": "Marketing",
+    "position": "Marketing Associate",
     "age": 24,
-    "start_date": "",
-    "end_date": "",
-    "disease": ""
+    "start_date": "2017-07-01",
+    "end_date": "2022-07-01",
+    "disease": "Cold"
   },
   "Blake Brown": {
     "name": "Blake Brown",
-    "department": "",
-    "position": "",
+    "department": "Finance",
+    "position": "Financial Analyst",
     "age": 19,
-    "start_date": "",
-    "end_date": "",
-    "disease": ""
+    "start_date": "2018-12-01",
+    "end_date": "2023-09-24",
+    "disease": "Migraine"
   },
   "Marian Nunez": {
     "name": "Marian Nunez",
-    "department": "",
-    "position": "",
+    "department": "IT",
+    "position": "IT Support",
     "age": 33,
-    "start_date": "",
-    "end_date": "",
-    "disease": ""
+    "start_date": "2013-02-01",
+    "end_date": "2018-02-01",
+    "disease": "Sinusitis"
   }
 }
