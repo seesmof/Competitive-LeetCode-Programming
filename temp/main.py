@@ -98,34 +98,9 @@ class Heap:
     def __init__(self):
         self.heap = []
 
-    def _siftUp(self, index):
-        while (index - 1) // 2 >= 0:
-            if self.heap[(index - 1) // 2] < self.heap[index]:
-                self._swap((index - 1) // 2, index)
-            index = (index - 1) // 2
-
-    def _siftDown(self, index):
-        while (index * 2) + 1 < len(self.heap):
-            mc = self._getMaxChild(index)
-            if self.heap[mc] > self.heap[index]:
-                self._swap(index, mc)
-            index = mc
-
-    def _getMaxChild(self, index):
-        if (index * 2) + 2 > len(self.heap) - 1:
-            return (index * 2) + 1
-        else:
-            if self.heap[(index * 2) + 1] > self.heap[(index * 2) + 2]:
-                return (index * 2) + 1
-            else:
-                return (index * 2) + 2
-
-    def _swap(self, i, j):
-        self.heap[i], self.heap[j] = self.heap[j], self.heap[i]
-
-    def insert(self, item):
-        self.heap.append(item)
-        self._siftUp(len(self.heap) - 1)
+    def insert(self, value):
+        self.heap.append(value)
+        self._heapifyUp(len(self.heap) - 1)
 
     def sort(self):
         sorted_items = []
@@ -137,17 +112,75 @@ class Heap:
     def buildHeap(self, arr):
         self.heap = arr
         for i in range(len(arr) // 2, -1, -1):
-            self._siftDown(i)
+            self._heapifyDown(i)
 
     def delete(self):
-        removed = self.heap[0]
-        self.heap[0] = self.heap[-1]
-        self.heap.pop()
-        if len(self.heap) > 0:
-            self._siftDown(0)
-        return removed
+        if len(self.heap) == 0:
+            return None
+
+        self._swap(0, len(self.heap) - 1)
+        root = self.heap.pop()
+        self._heapifyDown(0)
+
+        return root
 
     def display(self):
         for item in self.heap:
             print(item, end=" ")
         print()
+
+    def _heapifyUp(self, index):
+        parent_index = (index - 1) // 2
+
+        if parent_index >= 0 and self.heap[index] > self.heap[parent_index]:
+            self._swap(parent_index, index)
+            self._heapifyUp(parent_index)
+
+    def _heapifyDown(self, index):
+        leftChildIndex = 2 * index + 1
+        rightChildIndex = 2 * index + 2
+        largest = index
+
+        if (
+            leftChildIndex < len(self.heap)
+            and self.heap[leftChildIndex] > self.heap[largest]
+        ):
+            largest = leftChildIndex
+
+        if (
+            rightChildIndex < len(self.heap)
+            and self.heap[rightChildIndex] > self.heap[largest]
+        ):
+            largest = rightChildIndex
+
+        if largest != index:
+            self._swap(index, largest)
+            self._heapifyDown(largest)
+
+    def _swap(self, i, j):
+        self.heap[i], self.heap[j] = self.heap[j], self.heap[i]
+
+
+def heapSort(arr):
+    heap = Heap()
+
+    for num in arr:
+        heap.insert(num)
+
+    sorted_arr = []
+    while True:
+        num = heap.delete()
+        if num is None:
+            break
+        sorted_arr.append(num)
+
+    return sorted_arr
+
+
+def main():
+    arr = [5, 9, 3, 6, 11, 2, 8]
+    print(heapSort(arr))
+
+
+if __name__ == "__main__":
+    main()
