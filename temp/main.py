@@ -96,14 +96,17 @@ class DoublyLinkedList:
 
 class Heap:
     def __init__(self):
-        self.items = []
+        self.heap = []
 
-    def heapify(self, arr):
+    def swap(self, i, j):
+        self.heap[i], self.heap[j] = self.heap[j], self.heap[i]
+
+    def heapify(self, index):
         pass
 
     def push(self, item):
-        self.items.append(item)
-        self.heapify(self.items)
+        self.heap.append(item)
+        self.heapify(self.heap)
 
     def buildHeap(self, arr):
         pass
