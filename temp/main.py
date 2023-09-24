@@ -188,10 +188,12 @@ def countDiseaseCases(employeeData):
 def main():
     employeeData = getEmployeesData()
     diseasesCount = countDiseaseCases(employeeData)
-    diseasesCountList = heapSort([(key, value) for key, value in diseasesCount.items()])
+    diseasesCountList = heapSort(
+        [(occurences, name) for name, occurences in diseasesCount.items()]
+    )
 
     print(f"All the diseases: ")
-    for name, occurences in diseasesCountList:
+    for occurences, name in diseasesCountList:
         print(f"- {name}: {occurences} times")
 
 
