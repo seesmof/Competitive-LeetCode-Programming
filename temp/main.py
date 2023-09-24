@@ -98,15 +98,27 @@ class Heap:
     def __init__(self):
         self.heap = []
 
-    def swap(self, i, j):
+    def _swap(self, i, j):
         self.heap[i], self.heap[j] = self.heap[j], self.heap[i]
 
-    def heapify(self, index):
-        pass
+    def _heapify(self, index):
+        largest = index
+        left = 2 * index + 1
+        right = 2 * index + 1
+
+        if left < len(self.heap) and self.heap[left] > self.heap[largest]:
+            largest = left
+
+        if right < len(self.heap) and self.heap[right] > self.heap[largest]:
+            largest = right
+
+        if largest != index:
+            self._swap(index, largest)
+            self._heapify(largest)
 
     def push(self, item):
         self.heap.append(item)
-        self.heapify(self.heap)
+        self._heapify(self.heap)
 
     def buildHeap(self, arr):
         pass
