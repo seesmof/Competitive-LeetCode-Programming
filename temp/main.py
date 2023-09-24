@@ -94,10 +94,24 @@ class DoublyLinkedList:
         print("None")
 
 
-LinkedList = DoublyLinkedList()
-LinkedList.append(21)
-LinkedList.append(52)
-LinkedList.append(33)
-LinkedList.append(12)
-LinkedList.append(26)
-LinkedList.displayFromHead()
+class Heap:
+    def __init__(self):
+        self.heap = []
+
+    def append(self, item):
+        pass
+
+    def sortHeap(self):
+        pass
+
+    def buildHeap(self, arr):
+        pass
+
+    def delete(self, item):
+        pass
+
+    def heapSort(self):
+        pass
+
+    def display(self):
+        pass

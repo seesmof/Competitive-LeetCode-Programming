@@ -1,0 +1,49 @@
+{
+  "employees": [
+    {
+      "name": "Jennie Jackson",
+      "department": "Tech",
+      "position": "Engineer",
+      "age": 30,
+      "start_sick_leave": "2021-01-10",
+      "end_sick_leave": "2021-01-20",
+      "disease": "Flu"
+    },
+    {
+      "name": "Philip Hudson",
+      "department": "HR",
+      "position": "Manager",
+      "age": 35,
+      "start_sick_leave": "2021-04-15",
+      "end_sick_leave": "2021-04-25",
+      "disease": "Flu"
+    },
+    {
+      "name": "Adele Henr",
+      "department": "Sales",
+      "position": "Executive",
+      "age": 45,
+      "start_sick_leave": "2021-02-15",
+      "end_sick_leave": "2021-02-25",
+      "disease": "Covid-19"
+    },
+    {
+      "name": "Frank Blac",
+      "department": "Marketing",
+      "position": "Analyst",
+      "age": 40,
+      "start_sick_leave": "2021-03-10",
+      "end_sick_leave": "2021-03-15",
+      "disease": "Covid-19"
+    },
+    {
+      "name": "Floyd Patrick",
+      "department": "Admin",
+      "position": "Clerk",
+      "age": 25,
+      "start_sick_leave": "2021-07-01",
+      "end_sick_leave": "2021-07-10",
+      "disease": "Flu"
+    }
+  ]
+}
