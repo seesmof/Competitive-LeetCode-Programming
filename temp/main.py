@@ -177,24 +177,75 @@ def getEmployeesData():
 
 
 def countDiseaseCases(employeeData):
-    diseaseCount = dict()
+    diseasesCount = dict()
     for employee in employeeData["employees"]:
-        if employee["disease"] not in diseaseCount:
-            diseaseCount[employee["disease"]] = 0
-        diseaseCount[employee["disease"]] += 1
-    return diseaseCount
+        if employee["disease"] not in diseasesCount:
+            diseasesCount[employee["disease"]] = 0
+        diseasesCount[employee["disease"]] += 1
+    return diseasesCount
+
+
+def demoDoublyLinkedList():
+    linkedListDemo = DoublyLinkedList()
+
+    linkedListDemo.append("Node1")
+    linkedListDemo.append("Node2")
+    linkedListDemo.append("Node3")
+
+    print("Displaying list from head:")
+    linkedListDemo.displayFromHead()
+
+    print("\nDisplaying list from tail:")
+    linkedListDemo.displayFromTail()
+
+    linkedListDemo.appendAfterNode("Node2", "Node2.5")
+    print("\nAfter adding a node after Node2:")
+    linkedListDemo.displayFromHead()
+
+    print("\nSearching for Node2.5:")
+    print(linkedListDemo.search("Node2.5"))
+
+    linkedListDemo.delete("Node2.5")
+    print("\nAfter deleting Node2.5:")
+    linkedListDemo.displayFromHead()
 
 
 def main():
     employeeData = getEmployeesData()
     diseasesCount = countDiseaseCases(employeeData)
-    diseasesCountList = heapSort(
-        [(occurences, name) for name, occurences in diseasesCount.items()]
-    )
+    diseasesCountList = [
+        (occurences, name) for name, occurences in diseasesCount.items()
+    ]
 
-    print(f"All the diseases: ")
-    for occurences, name in diseasesCountList:
-        print(f"- {name}: {occurences} times")
+    print("Welcome! Make your choice below\n")
+
+    while True:
+        print("1. See a demo of a doubly linked list usage")
+        print("2. See the raw data from your file")
+        print("3. Sort the data")
+        print("4. See the number of occurrences for each disease")
+        print("5. Exit")
+        choice = input(": ")
+
+        print("\n---\n")
+        if choice == "1":
+            demoDoublyLinkedList()
+        elif choice == "2":
+            for employee in employeeData["employees"]:
+                print(
+                    f"- {employee['name']} - {employee['age']} years old, had {employee['disease']}. Works in {employee['department']} as a {employee['position']}"
+                )
+        elif choice == "3":
+            diseasesCountList = heapSort(
+                [(occurences, name) for name, occurences in diseasesCount.items()]
+            )
+            print("Data successfully sorted")
+        elif choice == "4":
+            for occurences, name in diseasesCountList:
+                print(f"- {name}: {occurences} times")
+        else:
+            break
+        print("\n---\n")
 
 
 if __name__ == "__main__":
