@@ -8,7 +8,7 @@ class Heap:
     def _heapify(self, index):
         largest = index
         left = 2 * index + 1
-        right = 2 * index + 1
+        right = 2 * index + 2
 
         if left < len(self.heap) and self.heap[left] > self.heap[largest]:
             largest = left
@@ -24,8 +24,9 @@ class Heap:
         self.heap.append(item)
         self._heapify(self.heap)
 
-    def buildHeap(self, arr):
-        pass
+    def buildHeap(self):
+        for i in reversed(range(len(self.heap) // 2)):
+            self._heapify(i)
 
     def pop(self):
         pass
