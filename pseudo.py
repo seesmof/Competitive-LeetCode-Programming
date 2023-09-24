@@ -18,6 +18,17 @@ class DoublyLinkedList:
             newNode.next = self.head
             self.head = newNode
 
+    def append(self, data):
+        if self.head is None:
+            self.head = Node(data)
+        else:
+            currentNode = self.head
+            while currentNode.next is not None:
+                currentNode = currentNode.next
+            newNode = Node(data)
+            currentNode.next = newNode
+            newNode.prev = currentNode
+
     def appendAfterNode(self, nodeData, data):
         currentNode = self.head
         while currentNode is not None:
@@ -60,16 +71,22 @@ class DoublyLinkedList:
         print("None")
 
     def displayFromTail(self):
+        if self.head is None:
+            print("None")
+            return
         currentNode = self.head
-        while currentNode is not None:
+        while currentNode.next is not None:
             currentNode = currentNode.next
+        while currentNode is not None:
+            print(currentNode.data, end=" -> ")
+            currentNode = currentNode.prev
         print("None")
 
 
-LL = DoublyLinkedList()
-LL.prepand(21)
-LL.prepand(52)
-LL.prepand(33)
-LL.prepand(12)
-LL.prepand(26)
-LL.displayFromTail()
+LinkedList = DoublyLinkedList()
+LinkedList.append(21)
+LinkedList.append(52)
+LinkedList.append(33)
+LinkedList.append(12)
+LinkedList.append(26)
+LinkedList.display()
