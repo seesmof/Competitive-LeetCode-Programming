@@ -12,62 +12,46 @@ class Heap:
     def __init__(self):
         self.heap = []
 
-    def build_max_heap(self):
-        n = len(self.heap)
-        for i in range(n // 2, 0, -1):
-            self._heapify(i, n)
+    def insert(self, item):
+        self.heap.append(item)
+        self.heapifyUp(len(self.heap) - 1)
 
-    def _heapify(self, i, n):
-        left = 2 * i
-        right = 2 * i + 1
-        max_idx = i
-
-        if left <= n and self.heap[left - 1] > self.heap[max_idx - 1]:
-            max_idx = left
-
-        if right <= n and self.heap[right - 1] > self.heap[max_idx - 1]:
-            max_idx = right
-
-        if max_idx != i:
-            self.heap[i - 1], self.heap[max_idx - 1] = (
-                self.heap[max_idx - 1],
-                self.heap[i - 1],
+    def heapifyUp(self, index):
+        while index > 0 and self.heap[index] < self.heap[(index - 1) // 2]:
+            self.heap[index], self.heap[(index - 1) // 2] = (
+                self.heap[(index - 1) // 2],
+                self.heap[index],
             )
-            self._heapify(max_idx, n)
+            index = (index - 1) // 2
 
-    def heapsort(self):
-        n = len(self.heap)
-        self.build_max_heap()
-        for i in range(n, 0, -1):
-            self.heap[0], self.heap[i - 1] = self.heap[i - 1], self.heap[0]
-            n -= 1
-            self._heapify(1, n)
+    def sort(self):
+        for i in range(len(self.heap)):
+            self.heapifyDown(i)
 
+    def heapifyDown(self, index):
+        while index * 2 + 1 < len(self.heap):
+            left = index * 2 + 1
+            right = index * 2 + 2
 
-heap = Heap()
-heap.heap = [1, 2, 3, 4, 5, 6, 7, 8]
-heap.heapsort()
-print(heap.heap)
+            if right < len(self.heap) and self.heap[right] < self.heap[left]:
+                left = right
+            if self.heap[index] > self.heap[left]:
+                self.heap[index], self.heap[left] = self.heap[left], self.heap[index]
+                index = left
+            else:
+                break
 
+    def buildHeap(self, arr):
+        for i in range(len(arr)):
+            self.insert(arr[i])
 
-class EmployeeData:
-    def __init__(
-        self,
-        name: str,
-        department: str,
-        position: str,
-        age: int,
-        start_date: str,
-        end_date: str,
-        disease: str,
-    ):
-        self.name = name
-        self.department = department
-        self.position = position
-        self.age = age
-        self.start_date = start_date
-        self.end_date = end_date
-        self.disease = disease
+    def delete(self, item):
+        index = self.heap.index(item)
+        self.heap[index] = None
+        self.heapifyDown(index)
+
+    def display(self):
+        print(self.heap)
 
 
 class ListNode:
@@ -186,38 +170,3 @@ class DoublyLinkedList:
                 cur.next.prev = cur.prev
                 cur.next = None
                 cur.prev = None
-
-
-def heapsort(A):
-    def buildMaxHeap(A):
-        n = len(A)
-        for i in range(n // 2, 0, -1):
-            heapify(A, i, n)
-
-    def heapify(A, i, n):
-        left = 2 * i
-        right = 2 * i + 1
-        max_idx = i
-
-        if left <= n and A[left - 1] > A[max_idx - 1]:
-            max_idx = left
-
-        if right <= n and A[right - 1] > A[max_idx - 1]:
-            max_idx = right
-
-        if max_idx != i:
-            A[i - 1], A[max_idx - 1] = A[max_idx - 1], A[i - 1]
-            heapify(A, max_idx, n)
-
-    n = len(A)
-    buildMaxHeap(A)
-    for i in range(n, 0, -1):
-        A[0], A[i - 1] = A[i - 1], A[0]
-        n -= 1
-        heapify(A, 1, n)
-
-
-# Example usage:
-A = [4, 10, 3, 5, 1]
-heapsort(A)
-print(A)  # Output: [1, 3, 4, 5, 10]
