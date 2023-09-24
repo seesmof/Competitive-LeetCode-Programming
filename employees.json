@@ -1,6 +1,15 @@
 {
   "employees": [
     {
+      "name": "Adele Henr",
+      "department": "Sales",
+      "position": "Executive",
+      "age": 45,
+      "start_sick_leave": "2021-02-15",
+      "end_sick_leave": "2021-02-25",
+      "disease": "Covid-19"
+    },
+    {
       "name": "Jennie Jackson",
       "department": "Tech",
       "position": "Engineer",
@@ -17,15 +26,6 @@
       "start_sick_leave": "2021-04-15",
       "end_sick_leave": "2021-04-25",
       "disease": "Flu"
-    },
-    {
-      "name": "Adele Henr",
-      "department": "Sales",
-      "position": "Executive",
-      "age": 45,
-      "start_sick_leave": "2021-02-15",
-      "end_sick_leave": "2021-02-25",
-      "disease": "Covid-19"
     },
     {
       "name": "Frank Blac",

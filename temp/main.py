@@ -7,6 +7,8 @@
   - Варіант: У відділі кадрів міститься інформація про захворювання співробітників, що включає: прізвище, ім’я, по батькові співробітника; відділ, посаду; вік; дату початку лікарняного; дату завершення лікарняного; хвороба. Вивести інформацію про всі хвороби, якими хворіли співробітники, за зменшенням кількості випадків.
 """
 
+import json
+
 
 class Node:
     def __init__(self, data=None):
@@ -103,11 +105,11 @@ class Heap:
         self._heapifyUp(len(self.heap) - 1)
 
     def sort(self):
-        sorted_items = []
+        sortedItems = []
         size = len(self.heap)
         for _ in range(size):
-            sorted_items.append(self.delete())
-        return sorted_items
+            sortedItems.append(self.delete())
+        return sortedItems
 
     def buildHeap(self, arr):
         self.heap = arr
@@ -117,11 +119,9 @@ class Heap:
     def delete(self):
         if len(self.heap) == 0:
             return None
-
         self._swap(0, len(self.heap) - 1)
         root = self.heap.pop()
         self._heapifyDown(0)
-
         return root
 
     def display(self):
@@ -130,29 +130,25 @@ class Heap:
         print()
 
     def _heapifyUp(self, index):
-        parent_index = (index - 1) // 2
-
-        if parent_index >= 0 and self.heap[index] > self.heap[parent_index]:
-            self._swap(parent_index, index)
-            self._heapifyUp(parent_index)
+        parentIndex = (index - 1) // 2
+        if parentIndex >= 0 and self.heap[index] > self.heap[parentIndex]:
+            self._swap(parentIndex, index)
+            self._heapifyUp(parentIndex)
 
     def _heapifyDown(self, index):
         leftChildIndex = 2 * index + 1
         rightChildIndex = 2 * index + 2
         largest = index
-
         if (
             leftChildIndex < len(self.heap)
             and self.heap[leftChildIndex] > self.heap[largest]
         ):
             largest = leftChildIndex
-
         if (
             rightChildIndex < len(self.heap)
             and self.heap[rightChildIndex] > self.heap[largest]
         ):
             largest = rightChildIndex
-
         if largest != index:
             self._swap(index, largest)
             self._heapifyDown(largest)
@@ -163,24 +159,43 @@ class Heap:
 
 def heapSort(arr):
     heap = Heap()
-
     for num in arr:
         heap.insert(num)
-
-    sorted_arr = []
+    sortedArray = []
     while True:
         num = heap.delete()
         if num is None:
             break
-        sorted_arr.append(num)
+        sortedArray.append(num)
+    return sortedArray
 
-    return sorted_arr
+
+def getEmployeesData():
+    with open("employees.json", "r") as inputFile:
+        data = json.load(inputFile)
+    return data
+
+
+def countDiseaseCases(employeeData):
+    diseaseCount = dict()
+    for employee in employeeData["employees"]:
+        if employee["disease"] not in diseaseCount:
+            diseaseCount[employee["disease"]] = 0
+        diseaseCount[employee["disease"]] += 1
+    return diseaseCount
 
 
 def main():
-    arr = [5, 9, 3, 6, 11, 2, 8]
-    print(heapSort(arr))
+    employeeData = getEmployeesData()
+    diseasesCount = countDiseaseCases(employeeData)
+    diseasesCountList = heapSort([(key, value) for key, value in diseasesCount.items()])
+
+    print(f"All the diseases: ")
+    for name, occurences in diseasesCountList:
+        print(f"- {name}: {occurences} times")
 
 
 if __name__ == "__main__":
+    print()
     main()
+    print()
