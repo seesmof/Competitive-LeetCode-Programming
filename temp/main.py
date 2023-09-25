@@ -225,7 +225,7 @@ def main():
         print("3. Sort the data")
         print("4. See the number of occurrences for each disease")
         print("5. Exit")
-        choice = input(": ")
+        choice = input("> ")
 
         print("\n---\n")
         if choice == "1":
