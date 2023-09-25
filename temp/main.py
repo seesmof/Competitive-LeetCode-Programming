@@ -7,8 +7,6 @@
   - Варіант: У відділі кадрів міститься інформація про захворювання співробітників, що включає: прізвище, ім’я, по батькові співробітника; відділ, посаду; вік; дату початку лікарняного; дату завершення лікарняного; хвороба. Вивести інформацію про всі хвороби, якими хворіли співробітники, за зменшенням кількості випадків.
 """
 
-import json
-
 
 class Node:
     def __init__(self, data=None):
@@ -22,44 +20,75 @@ class DoublyLinkedList:
         self.head = None
 
     def prepand(self, data):
+        # check if the list is empty
         if self.head is None:
+            # then the new node is head
             self.head = Node(data)
         else:
+            # declare new node
             newNode = Node(data)
+            # set current head's previous pointer to the new node
             self.head.prev = newNode
+            # set new node's next pointer to current head
             newNode.next = self.head
+            # set head to be the new node, since we're adding to the front
             self.head = newNode
 
     def append(self, data):
+        # if the list is empty
         if self.head is None:
+            # set new node to be a head
             self.head = Node(data)
         else:
+            # set a temporary node to be a head
             currentNode = self.head
+            # loop through all the nodes and reach the end of a list
             while currentNode.next is not None:
                 currentNode = currentNode.next
+            # declare a new node
             newNode = Node(data)
+            # set last node's next pointer to new node
             currentNode.next = newNode
+            # set new node's previous pointer to last node
             newNode.prev = currentNode
 
     def appendAfterNode(self, nodeData, data):
+        # set temporary node to be head
         currentNode = self.head
+        # loop through all the nodes
         while currentNode is not None:
+            # check if we reached the wanted node by comparing the data with input
             if currentNode.data == nodeData:
+                # declare new node
                 newNode = Node(data)
+                # set new node's previous pointer to the found node
                 newNode.prev = currentNode
+                # set new node's next pointer to the node after found one
                 newNode.next = currentNode.next
+                # check if the node after current exists
                 if currentNode.next is not None:
+                    # if it does, set its previous pointer to our new node
                     currentNode.next.prev = newNode
+                # set found node's next pointer to the new node and break out
                 currentNode.next = newNode
                 return
+            # keep iterating until found
             currentNode = currentNode.next
+        # if our function continues running after the loop, it means we didn't return once the node was found, meaning the node was not found
+        print(f"Node with data of {str(nodeData)} was not found.")
 
     def search(self, data) -> bool:
+        # set temporary node to head
         currentNode = self.head
+        # iterate through every node in the list
         while currentNode is not None:
+            # check if node's data corresponds to the one we're looking for
             if currentNode.data == data:
+                # then return true
                 return True
+            # keep iterating until found
             currentNode = currentNode.next
+        # if not found return false
         return False
 
     def delete(self, data) -> bool:
@@ -101,20 +130,30 @@ class Heap:
         self.heap = []
 
     def insert(self, value):
+        # append element to our array
         self.heap.append(value)
+        # heapify it in order to set in the correct place
         self._heapifyUp(len(self.heap) - 1)
 
     def sort(self):
         sortedItems = []
         size = len(self.heap)
+        # for each element in the heap
         for _ in range(size):
+            # append the largest element to the temporary array
             sortedItems.append(self.delete())
         return sortedItems
 
     def buildHeap(self, arr):
+        # set our heap to be the given array
         self.heap = arr
-        for i in range(len(arr) // 2, -1, -1):
+        # start in the middle of it cause the other half are leaves - nodes without children
+        start = len(arr) // 2
+        # for each element from the start to the first element in reversed order
+        for i in reversed(range(start + 1)):
+            # heapify it down to set in the correct place
             self._heapifyDown(i)
+        return self
 
     def delete(self):
         # if the heap is empty, return null
@@ -136,7 +175,9 @@ class Heap:
 
     def _heapifyUp(self, index):
         parentIndex = (index - 1) // 2
+        # checking if parent element exists and if our current element is larger than its parrent
         if parentIndex >= 0 and self.heap[index] > self.heap[parentIndex]:
+            # then swapping those two and continuing the process for parent
             self._swap(parentIndex, index)
             self._heapifyUp(parentIndex)
 
@@ -144,18 +185,28 @@ class Heap:
         leftChildIndex = 2 * index + 1
         rightChildIndex = 2 * index + 2
         largest = index
+
+        # checking if left child exists and its more than our largest element, which is currently our current element
         if (
             leftChildIndex < len(self.heap)
             and self.heap[leftChildIndex] > self.heap[largest]
         ):
+            # then reassigning largest element to left child
             largest = leftChildIndex
+
+        # checking if right child exists and if its larger than the current largest element
         if (
             rightChildIndex < len(self.heap)
             and self.heap[rightChildIndex] > self.heap[largest]
         ):
+            # then reassigning largest element to the right child
             largest = rightChildIndex
+
+        # checking if our current element is not the largest one
         if largest != index:
+            # if so, swapping them two
             self._swap(index, largest)
+            # continuing the process for the current largest element
             self._heapifyDown(largest)
 
     def _swap(self, i, j):
@@ -163,26 +214,16 @@ class Heap:
 
 
 def heapSort(arr):
-    heap = Heap()
-    # inserting each item from the array into the heap. maintaining the heap structure
-    for num in arr:
-        heap.insert(num)
-    sortedArray = []
-    while True:
-        # getting the largest element, which is also a root, by using a delete method
-        num = heap.delete()
-        # break out if there's no more elements
-        if num is None:
-            break
-        # append the element into the temporary array
-        sortedArray.append(num)
-    return sortedArray
+    return Heap().buildHeap(arr).sort()
+
+
+from json import load
 
 
 def getEmployeesData():
     # opening file for read and reading JSON data from a file into the variable
     with open("employees.json", "r") as inputFile:
-        data = json.load(inputFile)
+        data = load(inputFile)
     return data
 
 
