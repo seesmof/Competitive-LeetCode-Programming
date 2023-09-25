@@ -3,9 +3,9 @@ def quickSort(arr):
     if n < 2:
         return arr
 
-    p = arr[n // 2]
-    less = [x for x in arr if x < p]
-    eq = [x for x in arr if x == p]
-    more = [x for x in arr if x > p]
+    pivot = arr[n // 2]
+    less = [x for x in arr if x < pivot]
+    equal = [x for x in arr if x == pivot]
+    more = [x for x in arr if x > pivot]
 
-    return quickSort(less) + eq + quickSort(more)
+    return quickSort(less) + equal + quickSort(more)
