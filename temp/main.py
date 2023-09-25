@@ -117,11 +117,16 @@ class Heap:
             self._heapifyDown(i)
 
     def delete(self):
+        # if the heap is empty, return null
         if len(self.heap) == 0:
             return None
+        # swap root with the last element
         self._swap(0, len(self.heap) - 1)
+        # assign root to temporary veriable
         root = self.heap.pop()
+        # heapify the new root, which previously was the last element, to set it in a correct position
         self._heapifyDown(0)
+        # return the original root
         return root
 
     def display(self):
@@ -159,18 +164,23 @@ class Heap:
 
 def heapSort(arr):
     heap = Heap()
+    # inserting each item from the array into the heap. maintaining the heap structure
     for num in arr:
         heap.insert(num)
     sortedArray = []
     while True:
+        # getting the largest element, which is also a root, by using a delete method
         num = heap.delete()
+        # break out if there's no more elements
         if num is None:
             break
+        # append the element into the temporary array
         sortedArray.append(num)
     return sortedArray
 
 
 def getEmployeesData():
+    # opening file for read and reading JSON data from a file into the variable
     with open("employees.json", "r") as inputFile:
         data = json.load(inputFile)
     return data
@@ -179,8 +189,11 @@ def getEmployeesData():
 def countDiseaseCases(employeeData):
     diseasesCount = dict()
     for employee in employeeData["employees"]:
+        # if employee's disease doesn't yet exist in the dictionary
         if employee["disease"] not in diseasesCount:
+            # add it with a count of 0
             diseasesCount[employee["disease"]] = 0
+        # else just increment the count
         diseasesCount[employee["disease"]] += 1
     return diseasesCount
 
@@ -211,8 +224,11 @@ def demoDoublyLinkedList():
 
 
 def main():
+    # getting raw emloyee data from a JSON file
     employeeData = getEmployeesData()
+    # counting number of occurences of each disease
     diseasesCount = countDiseaseCases(employeeData)
+    # converting disease occurences to a list of tuples
     diseasesCountList = [
         (occurences, name) for name, occurences in diseasesCount.items()
     ]
@@ -236,9 +252,7 @@ def main():
                     f"- {employee['name']} - {employee['age']} years old, had {employee['disease']}. Works in {employee['department']} as a {employee['position']}"
                 )
         elif choice == "3":
-            diseasesCountList = heapSort(
-                [(occurences, name) for name, occurences in diseasesCount.items()]
-            )
+            diseasesCountList = heapSort(diseasesCountList)
             print("Data successfully sorted")
         elif choice == "4":
             for occurences, name in diseasesCountList:
