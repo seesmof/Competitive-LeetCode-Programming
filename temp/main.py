@@ -92,34 +92,55 @@ class DoublyLinkedList:
         return False
 
     def delete(self, data) -> bool:
+        # set temporary node to head
         currentNode = self.head
+        # iterate over all the nodes in a list
         while currentNode is not None:
+            # check if the node's data corresponds to the one we wanna delete
             if currentNode.data == data:
+                # check if there is a previous node
                 if currentNode.prev is not None:
+                    # then set previous node's next pointer to the node after our current
                     currentNode.prev.next = currentNode.next
+                # check if there is a next node
                 if currentNode.next is not None:
+                    # set next node's previous pointer to our previous node
                     currentNode.next.prev = currentNode.prev
+                # check if our node is the first node
                 if currentNode == self.head:
+                    # set head to the next element
                     self.head = currentNode.next
+                # return true indicating the successful deletion
                 return True
+            # keep iterating until found the one we're looking for
             currentNode = currentNode.next
+        # if we exit out of a loop, it means we haven't found a node we wanted to delete, so we return false, indicating the node wasnt found and deleted
         return False
 
     def displayFromHead(self):
+        # set temporary node to head
         currentNode = self.head
+        # ierate through all the nodes
         while currentNode is not None:
+            # print node's data and move onto the next one via the next pointer
             print(currentNode.data, end=" -> ")
             currentNode = currentNode.next
         print("None")
 
     def displayFromTail(self):
+        # if the list is empty
         if self.head is None:
+            # then print none and return
             print("None")
             return
+        # set temporary node to head
         currentNode = self.head
+        # iterate to the end of a list
         while currentNode.next is not None:
             currentNode = currentNode.next
+        # iterate from the end of the list
         while currentNode is not None:
+            # print current node and move onto the node before it by moving via a previous pointer
             print(currentNode.data, end=" -> ")
             currentNode = currentNode.prev
         print("None")
