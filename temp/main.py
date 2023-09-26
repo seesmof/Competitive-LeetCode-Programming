@@ -19,7 +19,7 @@ class DoublyLinkedList:
     def __init__(self):
         self.head = None
 
-    def prepand(self, data):
+    def prepend(self, data):
         # check if the list is empty
         if self.head is None:
             # then the new node is head
