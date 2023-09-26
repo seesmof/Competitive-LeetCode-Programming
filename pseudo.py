@@ -1,31 +1,11 @@
-"""
-An array M[1: N] of positive integers is given, ordered in non-decreasing order, i.e: M[1] ← M[2] ← ⋯ ← M[N]. Find the first positive integer that is not the sum of any elements of this array, the sum can consist of one term, but each element of the array can be included only once.
-"""
+import winreg
 
+# Open the Windows Registry
+reg_key = winreg.OpenKey(winreg.HKEY_CURRENT_USER, "Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Advanced")
 
-def quickSort(arr):
-    n = len(arr)
-    if n < 2:
-        return arr
+# Disable Home and OneDrive options in the sidebar
+winreg.SetValueEx(reg_key, "NavPaneShowHomeGroup", 0, winreg.REG_DWORD, 0)
+winreg.SetValueEx(reg_key, "NavPaneShowOneDrive", 0, winreg.REG_DWORD, 0)
 
-    pivot = arr[n // 2]
-    less = [x for x in arr if x < pivot]
-    equal = [x for x in arr if x == pivot]
-    more = [x for x in arr if x > pivot]
-
-    return quickSort(less) + equal + quickSort(more)
-
-
-def findSmallest(nums):
-    res = 1
-    for num in nums:
-        if num > res:
-            break
-        else:
-            res += num
-    return res
-
-
-nums = [3, 2, 9, 7]
-nums = quickSort(nums)
-print(findSmallest(quickSort(nums)))
+# Close the Registry key
+winreg.CloseKey(reg_key)
