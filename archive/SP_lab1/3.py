@@ -3,7 +3,7 @@
 """
 
 
-def solve(M: list[int], S: int) -> int:
+def solve(M: [int], S: int) -> int:
     # checking if either our cash register is empty, or we need no change to give
     if len(M) == 0 or S == 0:
         # in either case, just return 0

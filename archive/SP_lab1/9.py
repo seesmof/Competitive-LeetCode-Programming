@@ -4,12 +4,19 @@
 
 
 def solve(Q: [int], Y: [int]) -> bool:
+    # sort two arrays
     takeFrom, lookIn = sorted(Q), sorted(Y)
+    # for keeping track of the items in the original array
     count = 0
+    # loop over each item in the array
     for item in takeFrom:
+        # check if the item is in our target array
         if item in lookIn:
+            # if so, increment the counter
             count += 1
+        # if its not, it means that we cannot get an array Q from an array Y
         else:
+            # so we immediately return false
             return False
     return True if count == len(takeFrom) else False
 

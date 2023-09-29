@@ -3,7 +3,7 @@
 """
 
 
-def solve(M: [int]):
+def solve(M: [int]) -> int:
     # for keeping track of current sum
     sum = 1
 
