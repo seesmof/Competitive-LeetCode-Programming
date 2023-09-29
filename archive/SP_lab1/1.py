@@ -1,5 +1,5 @@
 """
-Дано масив M, складається з натуральних чисел, упорядкований в порядку зростання. Знайти перше натуральне число, яке не представляється сумою жодних елементів цього масиву, при цьому сума може складатися і з одного доданка, але кожен елемент масиву може входити в неї тільки один раз.
+Задано масив M[1: N] натуральних чисел, упорядкований за зростанням. Знайти перше натуральне число, яке не можна представити сумою жодних елементів масиву, при цьому сума може складатися і з одного доданка, але кожен елемент масиву може входити в неї лише один раз.
 """
 
 
@@ -30,4 +30,24 @@ def tests():
     print("All test passed")
 
 
-tests()
+def main():
+    print()
+    while True:
+        print("1. Run tests")
+        print("2. Enter own data")
+        print("3. Exit")
+        choice = input("Enter your choice: ")
+        print("\n---\n")
+        if choice == "1":
+            tests()
+        elif choice == "2":
+            print("Enter an array of integers separated by a space below")
+            data = list(map(int, input(": ").split()))
+            print(f"Result: {solve(data)}")
+        else:
+            break
+        print("\n---\n")
+
+
+if __name__ == "__main__":
+    main()

@@ -30,4 +30,26 @@ def tests():
     print("All tests passed")
 
 
-tests()
+def main():
+    print()
+    while True:
+        print("1. Run tests")
+        print("2. Enter own data")
+        print("3. Exit")
+        choice = input("Enter your choice: ")
+        print("\n---\n")
+        if choice == "1":
+            tests()
+        elif choice == "2":
+            print("Enter an array Q separated by a space below")
+            takeFrom = list(map(int, input(": ").split()))
+            print("Enter an array Y separated by a space below")
+            lookIn = list(map(int, input(": ").split()))
+            print(f"Result: {solve(takeFrom,lookIn)}")
+        else:
+            break
+        print("\n---\n")
+
+
+if __name__ == "__main__":
+    main()

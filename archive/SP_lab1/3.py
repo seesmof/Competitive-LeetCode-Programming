@@ -52,4 +52,25 @@ def tests():
     print(f"All tests passed")
 
 
-tests()
+def main():
+    print()
+    while True:
+        print("1. Run tests")
+        print("2. Enter own data")
+        print("3. Exit")
+        choice = input("Enter your choice: ")
+        print("\n---\n")
+        if choice == "1":
+            tests()
+        elif choice == "2":
+            givenSum = int(input("Enter a sum: "))
+            print("Enter a list of bills separated by a space below")
+            data = list(map(int, input(": ").split()))
+            print(f"Result: {solve(data,givenSum)}")
+        else:
+            break
+        print("\n---\n")
+
+
+if __name__ == "__main__":
+    main()
