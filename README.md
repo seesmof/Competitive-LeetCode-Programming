@@ -2,7 +2,7 @@
 
 <div align="center">
   <a href="https://github.com/seesmof/">
-    <img src="./logo.png" alt="Logo" height="80">
+    <img src="./archive/logo.png" alt="Logo" height="80">
   </a>
 
 <h1 align="center">LeetCode Solutions</h1>
