@@ -3,9 +3,15 @@
 """
 
 
-def solve(Q: [int], Y: [int]):
-    Q, Y = sorted(Q), sorted(Y)
-    return set(Q).issubset(Y)
+def solve(Q: [int], Y: [int]) -> bool:
+    takeFrom, lookIn = sorted(Q), sorted(Y)
+    count = 0
+    for item in takeFrom:
+        if item in lookIn:
+            count += 1
+        else:
+            return False
+    return True if count == len(takeFrom) else False
 
 
 def tests():
