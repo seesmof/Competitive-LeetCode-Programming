@@ -8,12 +8,7 @@
 # @lc code=start
 class Solution:
     def missingNumber(self, nums: [int]) -> int:
-        arr = sorted(nums)
-        n = len(arr) + 1
-        for i in range(n):
-            if i not in arr:
-                return i
-        return 0
+        return sum(range(0, len(nums) + 1)) - sum(nums)
 
 
 # @lc code=end
