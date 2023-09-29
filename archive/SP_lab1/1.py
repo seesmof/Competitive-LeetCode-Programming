@@ -34,7 +34,7 @@ def main():
     print()
     while True:
         print("1. Run tests")
-        print("2. Enter own data")
+        print("2. Enter custom data")
         print("3. Exit")
         choice = input("Enter your choice: ")
         print("\n---\n")
