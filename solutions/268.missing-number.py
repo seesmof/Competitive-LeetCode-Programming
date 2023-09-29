@@ -9,12 +9,11 @@
 class Solution:
     def missingNumber(self, nums: [int]) -> int:
         arr = sorted(nums)
-        if len(arr) == 1:
-            return arr[0] + 1
-        for i in range(len(arr) - 1):
-            if arr[i + 1] != arr[i] + 1:
-                return arr[i] + 1
-        return arr[-1] + 1
+        n = len(arr) + 1
+        for i in range(n):
+            if i not in arr:
+                return i
+        return 0
 
 
 # @lc code=end
