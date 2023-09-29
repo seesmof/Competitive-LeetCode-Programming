@@ -63,9 +63,9 @@ def main():
         if choice == "1":
             tests()
         elif choice == "2":
-            givenSum = int(input("Enter a sum: "))
+            givenSum = int(input("S: "))
             print("Enter a list of bills separated by a space below")
-            data = list(map(int, input(": ").split()))
+            data = list(map(int, input("M: ").split()))
             print(f"Result: {solve(data,givenSum)}")
         else:
             break

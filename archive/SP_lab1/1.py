@@ -42,7 +42,7 @@ def main():
             tests()
         elif choice == "2":
             print("Enter an array of integers separated by a space below")
-            data = list(map(int, input(": ").split()))
+            data = list(map(int, input("M: ").split()))
             print(f"Result: {solve(data)}")
         else:
             break

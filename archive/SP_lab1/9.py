@@ -42,9 +42,9 @@ def main():
             tests()
         elif choice == "2":
             print("Enter an array Q separated by a space below")
-            takeFrom = list(map(int, input(": ").split()))
+            takeFrom = list(map(int, input("Q: ").split()))
             print("Enter an array Y separated by a space below")
-            lookIn = list(map(int, input(": ").split()))
+            lookIn = list(map(int, input("Y: ").split()))
             print(f"Result: {solve(takeFrom,lookIn)}")
         else:
             break
