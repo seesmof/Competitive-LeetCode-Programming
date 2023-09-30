@@ -5,11 +5,12 @@ def isPalindrome(s):
 t = int(input())
 for _ in range(t):
     s = input()
-    if len(s) < 1:
-        print("NO")
-    elif isPalindrome(s) is False:
+    if isPalindrome(s) is False:
         print("YES")
         print(s)
-    elif isPalindrome(s):
-        print("YES")
-        print("".join(sorted(s)))
+    elif isPalindrome(s) is True:
+        if len(s) % 2 == 0:
+            print("NO")
+        else:
+            print("YES")
+            print("".join(sorted(s)))
