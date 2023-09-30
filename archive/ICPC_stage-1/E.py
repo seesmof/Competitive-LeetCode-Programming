@@ -17,3 +17,4 @@ for _ in range(t):
     for el in resArr:
         print(el, end=" ")
     print()
+Ц
