@@ -1,13 +1,17 @@
-def solve(nums: [int]) -> int:
-    return sum(range(0, len(nums) + 1)) - sum(nums)
+def solve(arr: [int]) -> bool:
+    res = False
+    for i in range(len(arr) - 2):
+        j = i + 1
+        k = i + 2
+        if i < j < k and arr[i] < arr[k] < arr[j]:
+            res = True
+    return res
 
 
 def tests():
-    assert solve([3, 0, 1]) == 2
-    assert solve([0, 1]) == 2
-    assert solve([9, 6, 4, 2, 3, 5, 7, 0, 1]) == 8
-    assert solve([0]) == 1
-    assert solve([1]) == 0
+    assert solve([1, 2, 3, 4]) == False
+    assert solve([3, 1, 4, 2]) == True
+    assert solve([-1, 3, 2, 0]) == True
     print("All tests passed")
 
 
