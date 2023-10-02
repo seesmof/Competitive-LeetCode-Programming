@@ -1,16 +1,10 @@
 """
-Обчислити 100! − 2^100
+Обчислити 7^123
 """
 
-import math
 
-
-def solve(factorialNumber=100, powerBase=2, powerExponent=100):
-    return factorial(factorialNumber) - pow(powerBase, powerExponent)
-
-
-def factorial(n):
-    return 1 if n == 1 else n * factorial(n - 1)
+def solve(powerBase=7, powerExponent=123):
+    return pow(powerBase, powerExponent)
 
 
 def pow(base, exponent):
@@ -18,7 +12,7 @@ def pow(base, exponent):
 
 
 def tests():
-    assert solve() == math.factorial(100) - 2**100
+    assert solve() == 7**123
     print("All tests passed")
 
 
@@ -33,12 +27,9 @@ def main():
         if choice == 1:
             tests()
         elif choice == 2:
-            factorialNumber = int(input(f"Enter a number for the factorial: "))
-            print(
-                "Below enter two numbers separated by space: power base and the exponent: "
-            )
+            print(f"Enter power base and power exponent below: ")
             powerBase, powerExponent = list(map(int, input().split()))
-            res = solve(factorialNumber, powerBase, powerExponent)
+            res = solve(powerBase, powerExponent)
             print(f"Result: {res}")
         else:
             break
