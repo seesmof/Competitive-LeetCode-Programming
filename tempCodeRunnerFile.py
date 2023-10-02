@@ -1,2 +1,0 @@
-
-bst.insert(5)
