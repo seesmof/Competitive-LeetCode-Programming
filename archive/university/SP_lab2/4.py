@@ -39,7 +39,7 @@ def main():
             )
             powerBase, powerExponent = list(map(int, input().split()))
             res = solve(factorialNumber, powerBase, powerExponent)
-            print(f"Result: {res}")
+            print(f"\nResult: {res}")
         else:
             break
         print("\n---\n")

@@ -30,7 +30,7 @@ def main():
             print(f"Enter power base and power exponent below: ")
             powerBase, powerExponent = list(map(int, input().split()))
             res = solve(powerBase, powerExponent)
-            print(f"Result: {res}")
+            print(f"\nResult: {res}")
         else:
             break
         print("\n---\n")

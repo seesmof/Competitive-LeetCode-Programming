@@ -37,7 +37,7 @@ def main():
             print(f"Enter two numbers, a base and an exponent, for the power below:")
             powerBase, powerExponent = list(map(int, input().split()))
             res = solve(factorialNumber, powerBase, powerExponent)
-            print(f"Result: {res}")
+            print(f"\nResult: {res}")
         else:
             break
         print("\n---\n")
