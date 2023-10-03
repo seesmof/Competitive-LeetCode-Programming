@@ -55,16 +55,16 @@ def main():
         print("1. Run tests")
         print("2. Enter custom data")
         print("3. Exit")
-        choice = input("Enter your choice: ")
+        choice = input(": ")
         print("\n---\n")
         if choice == "1":
             tests()
         elif choice == "2":
             print(
-                f"Enter the numbers, for which you'd like to calculate the sum of their factorials, below:"
+                f"Enter the numbers, for which you'd like to calculate the sum of their factorials, or a number, up to which calculate the sum, below:"
             )
             nums = list(map(int, input().split()))
-            res = solve(nums)
+            res = solve(nums) if len(nums) != 1 else solve(range(1, nums[0] + 1))
             print(f"\nResult: {res}")
         else:
             break

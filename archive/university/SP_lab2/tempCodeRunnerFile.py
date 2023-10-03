@@ -1,1 +1,1 @@
-res
+nResult

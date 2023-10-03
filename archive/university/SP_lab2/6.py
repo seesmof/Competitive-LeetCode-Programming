@@ -38,9 +38,7 @@ def main():
             print(f"Below enter two numbers that you want to use:")
             one, two = list(map(int, input().split()))
             bigger, difference = solve(one, two)
-            print(
-                f"Result:\n   - Larger one - {bigger}\n   - Difference - {difference}"
-            )
+            print(f"\nResult: Larger one - {bigger}, difference - {difference}")
         else:
             break
         print("\n---\n")
