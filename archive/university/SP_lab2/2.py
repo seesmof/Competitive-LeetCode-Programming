@@ -29,7 +29,9 @@ def main():
         if choice == "1":
             tests()
         elif choice == "2":
-            print(f"Enter the values, that you want to use, below:")
+            print(
+                f"Enter two numbers, a base for the power and an exponent, separated by a space, below:"
+            )
             num, power = list(map(int, input().split()))
             res = pow(num, power)
             print(f"\nResult: {res}")

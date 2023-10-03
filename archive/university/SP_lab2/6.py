@@ -35,8 +35,18 @@ def main():
         if choice == 1:
             tests()
         elif choice == 2:
-            print(f"Below enter two numbers that you want to use:")
-            one, two = list(map(int, input().split()))
+            print(
+                "Enter two numbers for the first element, one for the base and one for the exponent of the power, separated by a space below: "
+            )
+            oneBase, oneExponent = list(map(int, input().split()))
+            one = pow(oneBase, oneExponent)
+
+            print(
+                "Enter two numbers for the second element, one for the base of the power, another for the exponent of the power, separated by a space below:"
+            )
+            twoBase, twoExponent = list(map(int, input().split()))
+            two = pow(twoBase, twoExponent)
+
             bigger, difference = solve(one, two)
             print(f"\nResult: Larger one - {bigger}, difference - {difference}")
         else:
