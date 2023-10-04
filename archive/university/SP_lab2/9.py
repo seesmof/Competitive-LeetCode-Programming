@@ -3,21 +3,40 @@
 """
 
 
-def solve(nums: [int]) -> int:
+def solve(n: int) -> int:
     res = 0
 
-    for num in nums:
-        calculatedSquare = num * num
-        res += calculatedSquare
+    for i in range(1, n + 1):
+        tmp = int(pow(i, n))
+        res += tmp
 
     return res
 
 
+def pow(base, exponent):
+    return 1 if exponent == 0 else base * pow(base, exponent - 1)
+
+
 def tests():
-    assert solve([1, 2, 3, 4]) == 1**2 + 2**2 + 3**2 + 4**2
-    assert solve([13, 5, 9, 11]) == 13**2 + 5**2 + 9**2 + 11**2
+    assert solve(5) == 1**5 + 2**5 + 3**5 + 4**5 + 5**5
+    assert solve(3) == 1**3 + 2**3 + 3**3
     assert (
-        solve([52, 61, 94, 33, 333]) == 52**2 + 61**2 + 94**2 + 33**2 + 333**2
+        solve(15)
+        == 1**15
+        + 2**15
+        + 3**15
+        + 4**15
+        + 5**15
+        + 6**15
+        + 7**15
+        + 8**15
+        + 9**15
+        + 10**15
+        + 11**15
+        + 12**15
+        + 13**15
+        + 14**15
+        + 15**15
     )
     print("All tests passed!")
 
@@ -33,11 +52,9 @@ def main():
         if choice == 1:
             tests()
         elif choice == 2:
-            print(
-                "Enter the numbers, for each of which to calculate the sum of their squares, or a number, up to which to calculate a sum of squares, below:"
-            )
-            nums = list(map(int, input().split()))
-            res = solve(nums) if len(nums) != 1 else solve(range(1, nums[0] + 1))
+            print("Enter your N number below:")
+            n = int(input(": "))
+            res = solve(n)
             print(f"\nResult: {res}")
         else:
             break
