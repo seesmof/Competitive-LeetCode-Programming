@@ -155,6 +155,17 @@
       thead {
         background-color: var(--background-hover);
       }
+
+      .cell {
+        transition-duration: 300ms;
+        cursor: pointer;
+      }
+      .cell:hover{
+        background-color: #8e9dac;
+      }
+      .cell:active{
+        background-color: rgb(189, 204, 218);
+      }
     </style>
   </head>
   <body>
@@ -184,20 +195,31 @@
           <table>
             <thead>
               <tr>
-                <th>anyway parts</th>
-                <th>ocean size equator</th>
-                <th>day in century</th>
+                <th class="cell headCell-1">anyway parts</th>
+                <th class="cell headCell-2">ocean size equator</th>
+                <th class="cell headCell-3">day in century</th>
+              </tr>
               </tr>
             </thead>
             <tbody>
               <tr>
-                <td rowspan="2">fell trail task store physical steam verb</td>
-                <td>soldier above population figure basket soft compound</td>
-                <td>after saddle once wish fox announced think thin bit</td>
+                <td rowspan="2" class="cell bodyCell-1">
+                  fell trail task store physical steam verb
+                </td>
+                <td class="cell bodyCell-2">
+                  soldier above population figure basket soft compound
+                </td>
+                <td class="cell bodyCell-3">
+                  after saddle once wish fox announced think thin bit
+                </td>
               </tr>
               <tr>
-                <td>spell attached happened look local coal blanket</td>
-                <td>cow rough cut high nor broke bad than stock safe dry</td>
+                <td class="cell bodyCell-4">
+                  spell attached happened look local coal blanket
+                </td>
+                <td class="cell bodyCell-5">
+                  cow rough cut high nor broke bad than stock safe dry
+                </td>
               </tr>
             </tbody>
           </table>
