@@ -3,6 +3,10 @@
   margin: 0;
   box-sizing: border-box;
 }
+body {
+  max-width: 80rem;
+  margin: 0 auto;
+}
 
 a {
   text-decoration: none;
@@ -26,10 +30,11 @@ nav {
   display: grid;
   gap: 1rem;
 }
-@media (min-width: 768px) {
+@media (min-width: 1024px) {
   aside,
   nav {
     width: max-content;
+    height: max-content;
   }
   .main-content-holder {
     display: flex;
@@ -81,4 +86,30 @@ html {
 ul li,
 ol li {
   margin-left: 1rem;
+}
+code {
+  background-color: #323b51;
+  color: #eee;
+  padding: 0.2rem;
+  border-radius: 0.2rem;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: normal;
+  font-size: 1rem;
+}
+h1 {
+  font-weight: 500;
+  font-size: larger;
+}
+h2 {
+  font-weight: 500;
+  font-size: large;
+}
+strong {
+  font-weight: 500;
 }

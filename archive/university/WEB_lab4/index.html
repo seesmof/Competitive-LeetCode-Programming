@@ -7,16 +7,46 @@
     <title>Python - Wiki</title>
   </head>
   <body>
-    <header>
+    <header
+      style="display: flex; justify-content: space-between; align-items: center"
+    >
       <a href="./index.html">Wiki</a>
+      <a
+        href="./lab3/index.html"
+        title="View resume"
+        style="display: flex; align-items: center"
+      >
+        <img
+          src="./cv.png"
+          alt="resume logo image link"
+          style="width: 1.5rem"
+        />
+      </a>
     </header>
     <div class="main-content-holder">
       <nav>
-        <a href="#quick">Quick Reference</a>
-        <a href="#quick">Quick Reference</a>
+        <h2>Table of Contents</h2>
+
+        <ol>
+          <li>
+            <a href="#variables-and-data-types">Variables and Data Types</a>
+          </li>
+          <li><a href="#conditional-statements">Conditional Statements</a></li>
+          <li><a href="#loops">Loops</a></li>
+          <li><a href="#functions">Functions</a></li>
+          <li><a href="#lists">Lists</a></li>
+          <li><a href="#dictionaries">Dictionaries</a></li>
+          <li><a href="#strings">Strings</a></li>
+          <li><a href="#file-handling">File Handling</a></li>
+        </ol>
       </nav>
       <aside>
-        <h2 id="quick">Quick Reference</h2>
+        <img
+          src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Python-logo-notext.svg/1869px-Python-logo-notext.svg.png"
+          alt="python logo"
+          style="max-width: 10%"
+        />
+        <h2 id="quick">Python</h2>
         <ul>
           <li><strong>Designed by:</strong> Guido van Rossum</li>
           <li><strong>First appeared:</strong> 1991</li>
@@ -33,7 +63,9 @@
         </ul>
       </aside>
       <main>
-        <h1>Python Quick Reference</h1>
+        <h1 style="border-bottom: 0.1rem solid #cfcfcf; padding-bottom: 0.5rem">
+          Python Overview
+        </h1>
 
         <h2>Introduction</h2>
 
@@ -42,21 +74,6 @@
           simplicity and readability. This quick reference provides an overview
           of essential Python concepts and syntax.
         </p>
-
-        <h2>Table of Contents</h2>
-
-        <ol>
-          <li>
-            <a href="#variables-and-data-types">Variables and Data Types</a>
-          </li>
-          <li><a href="#conditional-statements">Conditional Statements</a></li>
-          <li><a href="#loops">Loops</a></li>
-          <li><a href="#functions">Functions</a></li>
-          <li><a href="#lists">Lists</a></li>
-          <li><a href="#dictionaries">Dictionaries</a></li>
-          <li><a href="#strings">Strings</a></li>
-          <li><a href="#file-handling">File Handling</a></li>
-        </ol>
 
         <h2 id="variables-and-data-types">Variables and Data Types</h2>
 
@@ -180,7 +197,7 @@
       </main>
     </div>
     <footer>
-      <a href="./lab3/index.html">Onyshchenko</a>
+      <a href="./lab3/index.html">Onyshchenko - Resume Link</a>
     </footer>
   </body>
 </html>
