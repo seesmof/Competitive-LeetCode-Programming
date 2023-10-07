@@ -4,7 +4,18 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Python - Wiki</title>
-    <link rel="stylesheet" href="./styles.css" />
+    <script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio,line-clamp"></script>
+    <style type="text/tailwindcss">
+      h2 {
+        @apply font-medium text-lg;
+      }
+      a:hover {
+        @apply underline underline-offset-2;
+      }
+      strong {
+        @apply font-medium;
+      }
+    </style>
   </head>
   <body>
     <div class="min-h-screen w-full bg-slate-100 text-slate-900">
@@ -14,7 +25,11 @@
         >
           <a href="./index.html" class="text-lg font-medium">Wiki</a>
           <a href="./lab3/index.html" title="View resume">
-            <img src="./cv.png" alt="resume logo image link" class="h-6 w-6" />
+            <img
+              src="./img/cv.png"
+              alt="resume logo image link"
+              class="h-6 w-6"
+            />
           </a>
         </header>
 
@@ -44,7 +59,7 @@
             <aside class="grid rounded-md bg-white p-4">
               <div class="flex items-center gap-2 pb-3">
                 <img
-                  src="./snake.png"
+                  src="./img/snake.png"
                   alt="python logo image"
                   class="h-6 w-6"
                 />
