@@ -78,7 +78,7 @@
                   alt="python logo image"
                   class="h-6 w-6"
                 />
-                <h2 class="text-xl font-medium">Philosophy of Python</h2>
+                <h2 class="text-xl font-medium">Apps with Python</h2>
               </div>
 
               <ul>
@@ -136,7 +136,8 @@ import socketserver
 PORT = 8000
 
 with socketserver.TCPServer(
-  ("", PORT), http.server.SimpleHTTPRequestHandler
+  ("", PORT), 
+  http.server.SimpleHTTPRequestHandler
 ) as httpd:
     print("Serving at port", PORT)
     httpd.serve_forever()
@@ -155,7 +156,8 @@ import matplotlib.pyplot as plt
 import pandas as pd
 
 # Create a simple plot
-data = {'x': [1, 2, 3, 4, 5], 'y': [10, 12, 5, 8, 7]}
+data = {'x': [1, 2, 3, 4, 5], 
+  'y': [10, 12, 5, 8, 7]}
 df = pd.DataFrame(data)
 plt.plot(df['x'], df['y'])
 plt.xlabel('X-axis')
@@ -221,8 +223,12 @@ import sys
 pygame.init()
 
 # Create a game window
-screen = pygame.display.set_mode((800, 600))
-pygame.display.set_caption("Simple Game")
+screen = pygame.display.set_mode(
+  (800, 600)
+)
+pygame.display.set_caption(
+  "Simple Game"
+)
 
 # Main game loop
 while True:
