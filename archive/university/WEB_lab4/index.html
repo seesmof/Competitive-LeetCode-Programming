@@ -15,6 +15,15 @@
       strong {
         @apply font-medium;
       }
+      h1 {
+        @apply font-semibold text-2xl pb-4;
+      }
+      main h2:not(.first-heading) {
+        @apply pt-4 pb-2;
+      }
+      main .first-heading {
+        @apply pb-2;
+      }
     </style>
   </head>
   <body>
@@ -42,7 +51,7 @@
         </div>
 
         <section class="grid gap-4 md:flex">
-          <div class="grid gap-4 md:flex md:flex-col">
+          <div class="grid gap-4 md:flex md:flex-col md:w-[20rem]">
             <nav class="grid rounded-md bg-white p-4">
               <h2 class="pb-2">Table of Contents</h2>
 
@@ -71,7 +80,7 @@
                   alt="python logo image"
                   class="h-6 w-6"
                 />
-                <h2 class="text-xl font-medium">Python</h2>
+                <h2 class="text-xl font-medium">Python Lanugage</h2>
               </div>
 
               <ul>
@@ -93,10 +102,10 @@
             </aside>
           </div>
 
-          <main class="grid rounded-md bg-white p-4">
+          <main class="grid rounded-md bg-white p-4 flex-1">
             <h1 class="pb-4 text-2xl font-semibold">Python Overview</h1>
 
-            <h2 class="pb-2">Introduction</h2>
+            <h2 class="first-heading">Introduction</h2>
 
             <p>
               Python is a high-level, versatile programming language known for
@@ -104,9 +113,7 @@
               overview of essential Python concepts and syntax.
             </p>
 
-            <h2 id="variables-and-data-types" class="pb-2 pt-4">
-              Variables and Data Types
-            </h2>
+            <h2 id="variables-and-data-types">Variables and Data Types</h2>
 
             <ul>
               <li>
@@ -125,9 +132,7 @@
               </li>
             </ul>
 
-            <h2 id="conditional-statements" class="pb-2 pt-4">
-              Conditional Statements
-            </h2>
+            <h2 id="conditional-statements">Conditional Statements</h2>
 
             <ul>
               <li>
@@ -141,7 +146,7 @@
               </li>
             </ul>
 
-            <h2 id="loops" class="pb-2 pt-4">Loops</h2>
+            <h2 id="loops">Loops</h2>
 
             <ul>
               <li>
@@ -154,7 +159,7 @@
               </li>
             </ul>
 
-            <h2 id="functions" class="pb-2 pt-4">Functions</h2>
+            <h2 id="functions">Functions</h2>
 
             <ul>
               <li>
@@ -171,7 +176,7 @@
               </li>
             </ul>
 
-            <h2 id="lists" class="pb-2 pt-4">Lists</h2>
+            <h2 id="lists">Lists</h2>
 
             <ul>
               <li>
@@ -188,7 +193,7 @@
               </li>
             </ul>
 
-            <h2 id="dictionaries" class="pb-2 pt-4">Dictionaries</h2>
+            <h2 id="dictionaries">Dictionaries</h2>
 
             <ul>
               <li>
@@ -202,7 +207,7 @@
               </li>
             </ul>
 
-            <h2 id="strings" class="pb-2 pt-4">Strings</h2>
+            <h2 id="strings">Strings</h2>
 
             <ul>
               <li>
@@ -215,7 +220,7 @@
               </li>
             </ul>
 
-            <h2 id="file-handling" class="pb-2 pt-4">File Handling</h2>
+            <h2 id="file-handling">File Handling</h2>
 
             <ul>
               <li>
