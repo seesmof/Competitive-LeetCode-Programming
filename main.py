@@ -1,8 +1,11 @@
-import http.server
-import socketserver
+def quickSort(arr):
+    n = len(arr)
+    if n < 2:
+        return arr
 
-PORT = 8000
+    pivot = arr[n // 2]
+    less = [x for x in arr if x < pivot]
+    equal = [x for x in arr if x == pivot]
+    more = [x for x in arr if x > pivot]
 
-with socketserver.TCPServer(("", PORT), http.server.SimpleHTTPRequestHandler) as httpd:
-    print("Serving at port", PORT)
-    httpd.serve_forever()
+    return quickSort(less) + equal + quickSort(more)
