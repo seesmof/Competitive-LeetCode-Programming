@@ -1,11 +1,6 @@
-def quickSort(arr):
-    n = len(arr)
-    if n < 2:
-        return arr
+import random
 
-    pivot = arr[n // 2]
-    less = [x for x in arr if x < pivot]
-    equal = [x for x in arr if x == pivot]
-    more = [x for x in arr if x > pivot]
-
-    return quickSort(less) + equal + quickSort(more)
+arr = []
+for _ in range(10000):
+    arr.append(random.randint(0, 10000))
+print(arr)
