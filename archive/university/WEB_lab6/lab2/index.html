@@ -1,0 +1,295 @@
+<!-- index.html -->
+
+<!DOCTYPE html>
+<html lang="uk">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="favicon.png" type="image/x-icon" />
+    <script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio,line-clamp"></script>
+
+    <title>Резюме - Онищенко Олег</title>
+    <meta name="description" content="Це сторінка мого особистого резюме." />
+    <meta
+      name="keywords"
+      content="резюме, онищенко олег, олег онищенко, олег онищенко резюме,"
+    />
+
+    <style type="text/tailwindcss">
+      h2 {
+        @apply font-medium text-lg;
+      }
+      div > section {
+        @apply px-4 pt-4 grid;
+      }
+      div > section > h2 {
+        @apply pb-2;
+      }
+      ol ol {
+        @apply ml-2 grid gap-1;
+      }
+      .input-group {
+        @apply grid gap-1 w-full;
+      }
+      .input-group > label {
+        @apply font-medium;
+      }
+      .input-group > input,
+      .input-group > textarea {
+        @apply bg-slate-100 hover:bg-slate-200 active:bg-slate-200 duration-300 rounded-md border-none;
+      }
+    </style>
+  </head>
+  <body class="bg-gradient-to-tr from-slate-100 to-slate-200 p-4 min-h-screen">
+    <main class="grid gap-4 max-w-6xl mx-auto">
+      <header class="flex items-center bg-white rounded-md p-4 justify-between">
+        <h1
+          class="font-medium text-lg lg:text-xl hover:underline hover:underline-offset-4"
+        >
+          <a href="./index.html">Резюме</a>
+        </h1>
+        <nav class="flex items-center">
+          <a
+            href="https://github.com/seesmof"
+            class="hover:bg-slate-50 px-2 py-1 duration-300 rounded-md"
+            title="Open Github profile"
+          >
+            <img
+              class="w-6 h-6 object-contain"
+              src="https://cdn-icons-png.flaticon.com/512/37/37819.png"
+              alt="github icon"
+            />
+          </a>
+          <a
+            href="mailto:seesmwork@gmail.com"
+            class="hover:bg-slate-50 px-2 py-1 duration-300 rounded-md"
+            title="Send an email"
+          >
+            <img
+              class="w-6 h-6 object-contain"
+              src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3d/Envelope_font_awesome.svg/1200px-Envelope_font_awesome.svg.png"
+              alt="email icon"
+            />
+          </a>
+        </nav>
+      </header>
+      <div class="rounded-md bg-white overflow-hidden grid pb-4">
+        <img
+          src="./logo.jpg"
+          alt="personal logo image"
+          class="object-cover max-h-32 w-full"
+        />
+        <section>
+          <h2>Особисті дані</h2>
+          <p>Прізвище: Онищенко</p>
+          <p>Ім&#39;я: Олег</p>
+          <p>По батькові: Антонович</p>
+          <p>Дата народження: 21.09.2005</p>
+        </section>
+        <section>
+          <h2>Освіта</h2>
+          <ul class="grid gap-2">
+            <li>
+              <h3 class="font-medium">
+                Національний університет &quot;Запорізька політехніка&quot;
+              </h3>
+              <p class="pt-2">Факультет Комп&#39;ютерних наук та технологій</p>
+              <p class="pb-2">Інженерія програмного забезпечення</p>
+              <em>2022 - 2026</em>
+            </li>
+            <li>
+              <h3 class="py-2 font-medium">Запорізька гімназія №47</h3>
+              <p class="pb-2">Одинадцять класів шкільної освіти</p>
+              <em>2011 - 2022</em>
+            </li>
+          </ul>
+        </section>
+        <section>
+          <h2>Професійні навички</h2>
+          <ol class="grid gap-2">
+            <li>Загальний рівень володіння комп&#39;ютером - високий</li>
+            <li>
+              Відомі офісні програми -
+              <ol>
+                <li>
+                  Microsoft Office
+                  <p>Рівень володіння - високий</p>
+                </li>
+                <li>
+                  Adobe Photoshop
+                  <p>Рівень володіння - середній</p>
+                </li>
+                <li>
+                  Figma
+                  <p>Рівень володіння - низький</p>
+                </li>
+                <li>
+                  Canva
+                  <p>Рівень володіння - середній</p>
+                </li>
+              </ol>
+            </li>
+            <li>
+              Відомі середовища розробки -
+              <ol>
+                <li>
+                  Microsoft Visual Studio
+                  <p>Рівень володіння - низький</p>
+                </li>
+                <li>
+                  Microsoft Visual Studio Code
+                  <p>Рівень володіння - високий</p>
+                </li>
+                <li>
+                  Sublime Text
+                  <p>Рівень володіння - середній</p>
+                </li>
+                <li>
+                  Notepad++
+                  <p>Рівень володіння - високий</p>
+                </li>
+              </ol>
+            </li>
+            <li>
+              Мови програмування -
+              <ol>
+                <li>TypeScript</li>
+                <li>Python</li>
+                <li>C++</li>
+              </ol>
+            </li>
+          </ol>
+        </section>
+        <section id="contacts">
+          <article>
+            <h2 class="pb-2">Контактна інформація</h2>
+            <p>Мобільний телефон: +380680077147</p>
+            <p>
+              Електронна пошта:
+              <a href="mailto:seesmwork@gmail.com">seesmwork@gmail.com</a>
+            </p>
+            <p>
+              Посилання на Github:
+              <a href="https://github.com/seesmof">seesmof</a>
+            </p>
+          </article>
+          <article>
+            <h3 class="py-2 font-medium">Соціальні мережі</h3>
+            <div id="social" class="flex items-center">
+              <a
+                href="https://github.com/seesmof"
+                class="px-2 py-1 hover:bg-slate-50 rounded-md"
+                title="Open Twitter profile"
+                target="_self"
+              >
+                <img
+                  src="https://www.svgrepo.com/show/11841/twitter.svg"
+                  alt="Twitter icon"
+                  class="h-5 w-5 object-contain"
+                />
+              </a>
+              <a
+                href="https://github.com/seesmof"
+                class="px-2 py-1 hover:bg-slate-50 rounded-md"
+                title="Open LinkedIn profile"
+              >
+                <img
+                  src="https://www.svgrepo.com/show/144550/linkedin.svg"
+                  alt="linked in icon"
+                  class="h-5 w-5 object-contain"
+                />
+              </a>
+              <a
+                href="https://github.com/seesmof"
+                class="px-2 py-1 hover:bg-slate-50 rounded-md"
+                title="Open Medium profile"
+              >
+                <img
+                  src="https://www.svgrepo.com/show/354057/medium-icon.svg"
+                  alt="Medium icon"
+                  class="h-5 w-5 object-contain"
+                />
+              </a>
+              <a
+                href="https://github.com/seesmof"
+                class="px-2 py-1 hover:bg-slate-50 rounded-md"
+                title="Open Reddit profile"
+              >
+                <img
+                  src="https://cdn-icons-png.flaticon.com/512/1051/1051330.png"
+                  alt="Reddit icon"
+                  class="h-5 w-5 object-contain"
+                />
+              </a>
+            </div>
+          </article>
+        </section>
+        <section>
+          <h2>Контактна форма</h2>
+          <form method="post" class="grid gap-3">
+            <div class="md:flex grid gap-3">
+              <div class="input-group">
+                <label for="name" class="required-label"> Ім&#39;я </label>
+                <input
+                  type="text"
+                  id="name"
+                  placeholder="John Doe"
+                  name="name"
+                  required
+                />
+              </div>
+              <div class="input-group">
+                <label for="email" class="required-label">
+                  Електронна пошта
+                </label>
+                <input
+                  type="email"
+                  id="email"
+                  placeholder="example@company.com"
+                  name="email"
+                  required
+                />
+              </div>
+            </div>
+            <div class="input-group">
+              <label for="phone"> Телефон </label>
+              <input
+                type="tel"
+                id="phone"
+                placeholder="+13544110833"
+                name="phone"
+              />
+            </div>
+            <div class="input-group">
+              <label for="message" class="required-label"> Повідомлення </label>
+              <textarea
+                name="message"
+                id="message"
+                rows="4"
+                placeholder="Введіть ваше повідомлення тут..."
+                style="font-family: inherit"
+                required
+              ></textarea>
+            </div>
+            <button
+              type="submit"
+              class="bg-blue-500 hover:bg-blue-600 duration-300 text-slate-50 font-medium py-2 rounded-md"
+            >
+              Відправити
+            </button>
+          </form>
+        </section>
+        <section>
+          <hr class="hidden" />
+          <a
+            href="./table.html"
+            class="font-medium hover:underline hover:underline-offset-4"
+          >
+            Я вмію створювати таблиці
+          </a>
+        </section>
+      </div>
+    </main>
+  </body>
+</html>

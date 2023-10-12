@@ -1,0 +1,47 @@
+/* custom.css */
+
+h2 {
+  font-size: 1.125rem /* 18px */;
+  line-height: 1.75rem /* 28px */;
+  font-weight: 500;
+}
+a:hover {
+  text-underline-offset: 2px;
+  text-decoration-line: underline;
+}
+strong {
+  font-weight: 500;
+}
+h1 {
+  font-weight: 600;
+  font-size: 1.5rem /* 24px */;
+  line-height: 2rem /* 32px */;
+  padding-bottom: 1rem /* 16px */;
+}
+main h2:not(.first-heading) {
+  padding-bottom: 0.5rem /* 8px */;
+  padding-top: 1rem /* 16px */;
+}
+main .first-heading {
+  padding-bottom: 0.5rem /* 8px */;
+}
+code {
+  overflow: hidden;
+}
+code pre {
+  margin-bottom: -1.25rem /* -20px */;
+  --tw-bg-opacity: 1;
+  background-color: rgb(30 41 59 / var(--tw-bg-opacity));
+  padding: 1rem /* 16px */;
+  --tw-text-opacity: 1;
+  color: rgb(248 250 252 / var(--tw-text-opacity));
+  margin-top: 0.5rem /* 8px */;
+}
+.navbar-link-container:hover {
+  --tw-bg-opacity: 1;
+  background-color: rgb(241 245 249 / var(--tw-bg-opacity));
+  text-decoration-line: none;
+}
+.navbar-link-container a:hover {
+  text-decoration-line: none;
+}
