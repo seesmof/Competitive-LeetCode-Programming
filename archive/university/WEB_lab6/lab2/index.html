@@ -35,13 +35,29 @@
       .input-group > label {
         @apply font-medium;
       }
-      .input-group > input,
-      .input-group > textarea {
-        @apply bg-slate-100 hover:bg-slate-200 active:bg-slate-200 duration-300 rounded-md border-none;
-      }
     </style>
   </head>
   <body class="bg-gradient-to-tr from-slate-100 to-slate-200 p-4 min-h-screen">
+    <div
+      id="error-modal"
+      class="inset-0 fixed bg-slate-900/40 items-center justify-center hidden"
+    >
+      <div class="bg-white rounded-md p-4 grid max-w-[90vw] md:max-w-xl">
+        <h2>😡 Йой... Шось пішло не так</h2>
+
+        <p class="py-3" id="error-paragraph">...</p>
+
+        <div class="flex items-center justify-end">
+          <button
+            class="bg-red-500 text-white duration-300 hover:bg-red-600 rounded-md font-medium text-center py-2 px-4"
+            id="error-dismiss"
+          >
+            Закрити
+          </button>
+        </div>
+      </div>
+    </div>
+
     <main class="grid gap-4 max-w-6xl mx-auto">
       <header class="flex items-center bg-white rounded-md p-4 justify-between">
         <h1
@@ -236,6 +252,7 @@
                   id="name"
                   placeholder="John Doe"
                   name="name"
+                  class="bg-slate-100 hover:bg-slate-200 active:bg-slate-200 duration-300 rounded-md border-none"
                   required
                 />
               </div>
@@ -275,6 +292,7 @@
             <button
               type="submit"
               class="bg-blue-500 hover:bg-blue-600 duration-300 text-slate-50 font-medium py-2 rounded-md"
+              id="form-submit"
             >
               Відправити
             </button>
@@ -290,6 +308,48 @@
           </a>
         </section>
       </div>
+
+      <script>
+        const errorModal = document.querySelector("#error-modal");
+        const errorParagraph = document.querySelector("#error-paragraph");
+        const errorButton = document.querySelector("#error-dismiss");
+
+        const nameInput = document.querySelector("#name");
+        const emailInput = document.querySelector("#email");
+        const phoneInput = document.querySelector("#phone");
+        const messageInput = document.querySelector("#message");
+        const formSubmitButton = document.querySelector("#form-submit");
+
+        errorButton.addEventListener("click", () => {
+          errorModal.classList.add("hidden");
+        });
+
+        const resetInputs = () => {
+          nameInput.value = "";
+          emailInput.value = "";
+          phoneInput.value = "";
+          messageInput.value = "";
+        };
+
+        const validateNameInput = (input) => {
+          const regex = /^[a-zA-Zа-яА-ЯіІїЇєЄґҐ]+$/;
+
+          if (!regex.test(input.value)) {
+            errorModal.classList.remove("hidden");
+            errorParagraph.textContent =
+              "1. Ім'я має містити лише Українські або Англійські літери. Будь ласка змініть ім'я.";
+            resetInputs();
+          } else {
+            resetInputs();
+          }
+        };
+
+        formSubmitButton.addEventListener("click", (event) => {
+          event.preventDefault();
+
+          validateNameInput(nameInput);
+        });
+      </script>
     </main>
   </body>
 </html>
