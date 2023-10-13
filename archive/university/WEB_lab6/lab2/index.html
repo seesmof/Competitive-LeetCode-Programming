@@ -40,12 +40,12 @@
   <body class="bg-gradient-to-tr from-slate-100 to-slate-200 p-4 min-h-screen">
     <div
       id="error-modal"
-      class="inset-0 fixed bg-slate-900/40 items-center justify-center hidden"
+      class="inset-0 fixed bg-slate-900/40 flex items-center justify-center"
     >
       <div class="bg-white rounded-md p-4 grid max-w-[90vw] md:max-w-xl">
         <h2>😡 Йой... Шось пішло не так</h2>
 
-        <p class="py-3" id="error-paragraph">...</p>
+        <pre class="py-3 font-sans" id="error-paragraph">...</pre>
 
         <div class="flex items-center justify-end">
           <button
@@ -252,7 +252,7 @@
                   id="name"
                   placeholder="John Doe"
                   name="name"
-                  class="bg-slate-100 hover:bg-slate-200 active:bg-slate-200 duration-300 rounded-md border-none"
+                  class="bg-slate-100 hover:bg-slate-200 focus:bg-slate-200 duration-300 rounded-md border-none"
                   required
                 />
               </div>
@@ -265,6 +265,7 @@
                   id="email"
                   placeholder="example@company.com"
                   name="email"
+                  class="bg-slate-100 hover:bg-slate-200 focus:bg-slate-200 duration-300 rounded-md border-none"
                   required
                 />
               </div>
@@ -276,6 +277,8 @@
                 id="phone"
                 placeholder="+13544110833"
                 name="phone"
+                required
+                class="bg-slate-100 hover:bg-slate-200 focus:bg-slate-200 duration-300 rounded-md border-none"
               />
             </div>
             <div class="input-group">
@@ -286,6 +289,7 @@
                 rows="4"
                 placeholder="Введіть ваше повідомлення тут..."
                 style="font-family: inherit"
+                class="bg-slate-100 hover:bg-slate-200 focus:bg-slate-200 duration-300 rounded-md border-none resize-none"
                 required
               ></textarea>
             </div>
@@ -311,7 +315,7 @@
 
       <script>
         const errorModal = document.querySelector("#error-modal");
-        const errorParagraph = document.querySelector("#error-paragraph");
+        let errorParagraph = document.querySelector("#error-paragraph");
         const errorButton = document.querySelector("#error-dismiss");
 
         const nameInput = document.querySelector("#name");
@@ -320,35 +324,163 @@
         const messageInput = document.querySelector("#message");
         const formSubmitButton = document.querySelector("#form-submit");
 
-        errorButton.addEventListener("click", () => {
-          errorModal.classList.add("hidden");
-        });
+        const toggleErrorMessage = () => {
+          errorModal.classList.toggle("hidden");
+        };
 
-        const resetInputs = () => {
+        const clearInputs = () => {
           nameInput.value = "";
           emailInput.value = "";
           phoneInput.value = "";
           messageInput.value = "";
         };
 
+        const addRedBorder = (input) => {
+          input.classList.remove("border-none");
+          input.classList.add("border-red-500", "border-2");
+        };
+
+        const removeRedBorder = (input) => {
+          input.classList.remove("border-red-500", "border-2");
+          input.classList.add("border-none");
+        };
+
+        const addRedBackground = (input) => {
+          input.classList.remove("bg-slate-100");
+          input.classList.add("bg-red-200");
+        };
+
+        const removeRedBackground = (input) => {
+          input.classList.remove("bg-red-200");
+          input.classList.add("bg-slate-100");
+        };
+
         const validateNameInput = (input) => {
-          const regex = /^[a-zA-Zа-яА-ЯіІїЇєЄґҐ]+$/;
+          const regex = /^[a-zA-Zа-яА-ЯіІїЇєЄґҐ\s]+$/;
 
           if (!regex.test(input.value)) {
-            errorModal.classList.remove("hidden");
-            errorParagraph.textContent =
-              "1. Ім'я має містити лише Українські або Англійські літери. Будь ласка змініть ім'я.";
-            resetInputs();
+            const paragraph =
+              "Ім'я має містити лише Українські або Англійські літери.";
+
+            return {
+              valid: false,
+              message: paragraph,
+            };
           } else {
-            resetInputs();
+            return {
+              valid: true,
+              message: "",
+            };
+          }
+        };
+
+        const validateEmail = (input) => {
+          const regex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+
+          if (!regex.test(input.value)) {
+            const paragraph =
+              "Електронна пошта має бути у форматі example@company.com.";
+
+            return {
+              valid: false,
+              message: paragraph,
+            };
+          } else {
+            return {
+              valid: true,
+              message: "",
+            };
+          }
+        };
+
+        const validatePhone = (input) => {
+          const regex = /^[\s\d()+-]+$/;
+
+          if (!regex.test(input.value)) {
+            const paragraph =
+              "Телефон має містити лише цифри, пробіли або знаки +, -, ().";
+
+            return {
+              valid: false,
+              message: paragraph,
+            };
+          } else {
+            return {
+              valid: true,
+              message: "",
+            };
           }
         };
 
         formSubmitButton.addEventListener("click", (event) => {
           event.preventDefault();
+          let errorParagraphMessage = "";
 
-          validateNameInput(nameInput);
+          const nameResults = validateNameInput(nameInput);
+          const nameValid = nameResults.valid;
+          const nameMessage = nameResults.message;
+          errorParagraphMessage += nameMessage + "\n";
+
+          const emailResults = validateEmail(emailInput);
+          const emailValid = emailResults.valid;
+          const emailMessage = emailResults.message;
+          errorParagraphMessage += emailMessage + "\n";
+
+          const phoneResults = validatePhone(phoneInput);
+          const phoneValid = phoneResults.valid;
+          const phoneMessage = phoneResults.message;
+          errorParagraphMessage += phoneMessage + "\n";
+
+          let inputsEmpty = false;
+
+          if (nameInput.value === "") {
+            addRedBorder(nameInput);
+            inputsEmpty = true;
+          } else if (!nameValid) {
+            addRedBorder(nameInput);
+            addRedBackground(nameInput);
+          }
+
+          if (emailInput.value === "") {
+            addRedBorder(emailInput);
+            inputsEmpty = true;
+          } else if (!emailValid) {
+            addRedBorder(emailInput);
+            addRedBackground(emailInput);
+          }
+
+          if (phoneInput.value === "") {
+            addRedBorder(phoneInput);
+            inputsEmpty = true;
+          } else if (!phoneValid) {
+            addRedBorder(phoneInput);
+            addRedBackground(phoneInput);
+          }
+
+          if (!inputsEmpty) {
+            if (!nameValid || !emailValid || !phoneValid) {
+              errorParagraph.textContent = errorParagraphMessage;
+              toggleErrorMessage();
+            } else {
+              clearInputs();
+            }
+          }
         });
+
+        errorButton.addEventListener("click", () => {
+          errorModal.classList.add("hidden");
+          removeRedBorder(nameInput);
+          removeRedBackground(nameInput);
+          removeRedBorder(emailInput);
+          removeRedBackground(emailInput);
+          removeRedBorder(phoneInput);
+          removeRedBackground(phoneInput);
+          clearInputs();
+        });
+
+        window.onload = () => {
+          errorModal.classList.add("hidden");
+        };
       </script>
     </main>
   </body>
