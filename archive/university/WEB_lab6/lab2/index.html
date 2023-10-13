@@ -372,12 +372,12 @@
           input.classList.add("bg-slate-100");
         };
 
-        const validateNameInput = (input) => {
+        const validateName = (input) => {
           const regex = /^[a-zA-Zа-яА-ЯіІїЇєЄґҐ\s]+$/;
 
           if (!regex.test(input.value)) {
             const paragraph =
-              "Ім'я має містити лише Українські або Англійські літери. ";
+              "Ім'я має містити лише Українські або Англійські літери.";
 
             return {
               valid: false,
@@ -396,7 +396,7 @@
 
           if (!regex.test(input.value)) {
             const paragraph =
-              "Електронна пошта має бути у форматі example@company.com. ";
+              "Електронна пошта має бути у форматі example@company.com.";
 
             return {
               valid: false,
@@ -415,7 +415,7 @@
 
           if (!regex.test(input.value)) {
             const paragraph =
-              "Телефон має містити лише цифри, пробіли або знаки +, -, (). ";
+              "Телефон має містити лише цифри, пробіли або знаки +, -, ().";
 
             return {
               valid: false,
@@ -431,24 +431,21 @@
 
         formSubmitButton.addEventListener("click", (event) => {
           event.preventDefault();
-          let errorParagraphMessage = "";
 
-          const nameResults = validateNameInput(nameInput);
+          const nameResults = validateName(nameInput);
           const nameValid = nameResults.valid;
           const nameMessage = nameResults.message;
-          errorParagraphMessage += nameMessage;
 
           const emailResults = validateEmail(emailInput);
           const emailValid = emailResults.valid;
           const emailMessage = emailResults.message;
-          errorParagraphMessage += emailMessage;
 
           const phoneResults = validatePhone(phoneInput);
           const phoneValid = phoneResults.valid;
           const phoneMessage = phoneResults.message;
-          errorParagraphMessage += phoneMessage;
 
           let inputsEmpty = false;
+          const errorParagraphMessage = `${nameMessage} ${emailMessage} ${phoneMessage}`;
 
           if (nameInput.value === "") {
             addRedBorder(nameInput);
@@ -485,7 +482,7 @@
         });
 
         errorButton.addEventListener("click", () => {
-          errorModal.classList.add("hidden");
+          toggleErrorMessage();
           removeRedBorder(nameInput);
           removeRedBackground(nameInput);
           removeRedBorder(emailInput);
