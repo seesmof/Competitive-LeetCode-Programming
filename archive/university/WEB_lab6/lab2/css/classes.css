@@ -33,10 +33,6 @@
   margin-right: auto;
 }
 
-.ml-2 {
-  margin-left: 0.5rem;
-}
-
 .flex {
   display: flex;
 }
@@ -115,10 +111,6 @@
 
 .justify-between {
   justify-content: space-between;
-}
-
-.gap-1 {
-  gap: 0.25rem;
 }
 
 .gap-2 {
@@ -246,10 +238,6 @@
   padding-top: 0.5rem;
 }
 
-.pt-4 {
-  padding-top: 1rem;
-}
-
 .text-center {
   text-align: center;
 }
@@ -323,6 +311,10 @@
 
   .md\:max-w-xl {
     max-width: 36rem;
+  }
+
+  .md\:items-center {
+    align-items: center;
   }
 }
 

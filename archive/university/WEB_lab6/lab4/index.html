@@ -6,10 +6,41 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Overview - Python Wiki</title>
-    <link rel="stylesheet" href="./css/base.css" />
-    <link rel="stylesheet" href="./css/classes.css" />
-    <link rel="stylesheet" href="./css/custom.css" />
     <link rel="shortcut icon" href="./img/snake.png" type="image/x-icon" />
+
+    <script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio,line-clamp"></script>
+    <style type="text/tailwindcss">
+      h2 {
+        @apply font-medium text-lg;
+      }
+      a:hover {
+        @apply underline underline-offset-4;
+      }
+      strong {
+        @apply font-medium;
+      }
+      h1 {
+        @apply font-bold text-lg pb-4;
+      }
+      main h2:not(.first-heading) {
+        @apply pt-4 pb-2;
+      }
+      main .first-heading {
+        @apply pb-2;
+      }
+      code {
+        @apply overflow-hidden;
+      }
+      code pre {
+        @apply rounded-md -mb-5 bg-slate-800 text-slate-50 mt-2;
+      }
+      .navbar-link-container:hover {
+        @apply bg-slate-50 no-underline;
+      }
+      .navbar-link-container a:hover {
+        @apply no-underline;
+      }
+    </style>
   </head>
   <body>
     <div class="min-h-screen w-full bg-slate-100 text-slate-900">
@@ -294,11 +325,26 @@
         </section>
 
         <footer
-          class="grid rounded-md lg:rounded-lg xl:rounded-xl bg-white p-4"
+          class="grid gap-4 md:flex md:items-center md:justify-between rounded-md lg:rounded-lg xl:rounded-xl bg-white p-4"
         >
           <a href="./lab3/index.html">Onyshchenko - Resume Link</a>
+          <button
+            class="rounded-md bg-blue-500 hover:bg-blue-600 duration-300 font-medium text-white px-4 py-1"
+            id="quote-button"
+          >
+            Quote of the Day
+          </button>
         </footer>
       </div>
     </div>
+
+    <script type="module">
+      import { randomQuote } from "./js/randomQuote.js";
+
+      document.querySelector("#quote-button").addEventListener("click", () => {
+        const quote = randomQuote();
+        alert(quote);
+      });
+    </script>
   </body>
 </html>
