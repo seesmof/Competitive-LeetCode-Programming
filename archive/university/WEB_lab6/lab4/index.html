@@ -7,9 +7,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Overview - Python Wiki</title>
     <link rel="shortcut icon" href="./img/snake.png" type="image/x-icon" />
-    <link rel="stylesheet" href="./css/base.css" />
+    <!-- <link rel="stylesheet" href="./css/base.css" />
     <link rel="stylesheet" href="./css/classes.css" />
-    <link rel="stylesheet" href="./css/custom.css" />
+    <link rel="stylesheet" href="./css/custom.css" /> -->
+    <script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio,line-clamp"></script>
   </head>
   <body>
     <div class="min-h-screen w-full bg-slate-100 text-slate-900">
@@ -27,69 +28,82 @@
           </a>
         </header>
 
-        <nav
-          class="bg-white rounded-md lg:rounded-lg xl:rounded-xl p-4 flex items-center"
-        >
-          <a
-            href="./index.html"
-            title="Overview"
-            class="flex items-start gap-1.5 navbar-link-container rounded-md px-2 py-1 cursor-pointer font-medium"
+        <div class="flex items-center gap-2">
+          <div
+            class="bg-white rounded-md h-full lg:rounded-lg xl:rounded-xl p-4 flex items-center justify-center"
           >
-            <img
-              src="./img/overview.png"
-              alt="section icon image"
-              class="w-6 h-6"
-            />
-            <span class="hidden sm:block">Overview</span>
-          </a>
-          <a
-            href="./history.html"
-            title="History"
-            class="flex items-start gap-1.5 navbar-link-container rounded-md px-2 py-1 cursor-pointer"
-            ><img
-              src="./img/history.png"
-              alt="section icon image"
-              class="w-6 h-6"
-            />
-            <span class="hidden sm:block">History</span>
-          </a>
-          <a
-            href="./advantages.html"
-            title="Advantages"
-            class="flex items-start gap-1.5 navbar-link-container rounded-md px-2 py-1 cursor-pointer"
+            <button>
+              <img
+                src="./img/menu.png"
+                alt="menu icon image"
+                class="w-6 h-6 object-contain"
+              />
+            </button>
+          </div>
+          <nav
+            class="bg-white rounded-md lg:rounded-lg xl:rounded-xl p-4 flex items-center"
           >
-            <img
-              src="./img/advantages.png"
-              alt="section icon image"
-              class="w-6 h-6"
-            />
-            <span class="hidden sm:block">Advantages</span>
-          </a>
-          <a
-            href="./philosophy.html"
-            title="Philosophy"
-            class="flex items-start gap-1.5 navbar-link-container rounded-md px-2 py-1 cursor-pointer"
-          >
-            <img
-              src="./img/philosophy.png"
-              alt="section icon image"
-              class="w-6 h-6"
-            />
-            <span class="hidden sm:block">Philosophy</span>
-          </a>
-          <a
-            href="./examples.html"
-            title="Code examples"
-            class="flex items-start gap-1.5 navbar-link-container rounded-md px-2 py-1 cursor-pointer"
-          >
-            <img
-              src="./img/apps.png"
-              alt="section icon image"
-              class="w-6 h-6"
-            />
-            <span class="hidden sm:block">Apps</span>
-          </a>
-        </nav>
+            <a
+              href="./index.html"
+              title="Overview"
+              class="flex items-start gap-1.5 navbar-link-container rounded-md px-2 py-1 cursor-pointer font-medium"
+            >
+              <img
+                src="./img/overview.png"
+                alt="section icon image"
+                class="w-6 h-6"
+              />
+              <span class="hidden sm:block">Overview</span>
+            </a>
+            <a
+              href="./history.html"
+              title="History"
+              class="flex items-start gap-1.5 navbar-link-container rounded-md px-2 py-1 cursor-pointer"
+              ><img
+                src="./img/history.png"
+                alt="section icon image"
+                class="w-6 h-6"
+              />
+              <span class="hidden sm:block">History</span>
+            </a>
+            <a
+              href="./advantages.html"
+              title="Advantages"
+              class="flex items-start gap-1.5 navbar-link-container rounded-md px-2 py-1 cursor-pointer"
+            >
+              <img
+                src="./img/advantages.png"
+                alt="section icon image"
+                class="w-6 h-6"
+              />
+              <span class="hidden sm:block">Advantages</span>
+            </a>
+            <a
+              href="./philosophy.html"
+              title="Philosophy"
+              class="flex items-start gap-1.5 navbar-link-container rounded-md px-2 py-1 cursor-pointer"
+            >
+              <img
+                src="./img/philosophy.png"
+                alt="section icon image"
+                class="w-6 h-6"
+              />
+              <span class="hidden sm:block">Philosophy</span>
+            </a>
+            <a
+              href="./examples.html"
+              title="Code examples"
+              class="flex items-start gap-1.5 navbar-link-container rounded-md px-2 py-1 cursor-pointer"
+            >
+              <img
+                src="./img/apps.png"
+                alt="section icon image"
+                class="w-6 h-6"
+              />
+              <span class="hidden sm:block">Apps</span>
+            </a>
+          </nav>
+        </div>
 
         <section class="grid gap-4 md:flex md:flex-row-reverse">
           <div class="grid gap-4 md:flex md:flex-col md:w-[17rem] lg:w-[20rem]">
