@@ -40,12 +40,12 @@
   <body class="bg-gradient-to-tr from-slate-100 to-slate-200 p-4 min-h-screen">
     <div
       id="error-modal"
-      class="inset-0 fixed bg-slate-900/40 flex items-center justify-center"
+      class="inset-0 fixed bg-slate-900/40 flex items-start p-4 justify-center z-50"
     >
       <div class="bg-white rounded-md p-4 grid max-w-[90vw] md:max-w-xl">
         <h2>😡 Йой... Шось пішло не так</h2>
 
-        <pre class="py-3 font-sans" id="error-paragraph">...</pre>
+        <p class="py-3" id="error-paragraph">...</p>
 
         <div class="flex items-center justify-end">
           <button
@@ -283,15 +283,23 @@
             </div>
             <div class="input-group">
               <label for="message" class="required-label"> Повідомлення </label>
-              <textarea
-                name="message"
-                id="message"
-                rows="4"
-                placeholder="Введіть ваше повідомлення тут..."
-                style="font-family: inherit"
-                class="bg-slate-100 hover:bg-slate-200 focus:bg-slate-200 duration-300 rounded-md border-none resize-none"
-                required
-              ></textarea>
+              <div class="relative w-full">
+                <div
+                  id="number-of-characters"
+                  class="absolute bottom-2 right-2 flex items-end justify-end text-slate-500 font-medium"
+                >
+                  0
+                </div>
+                <textarea
+                  name="message"
+                  id="message"
+                  rows="4"
+                  placeholder="Введіть ваше повідомлення тут..."
+                  style="font-family: inherit"
+                  class="bg-slate-100 hover:bg-slate-200 focus:bg-slate-200 duration-300 rounded-md border-none resize-none w-full"
+                  required
+                ></textarea>
+              </div>
             </div>
             <button
               type="submit"
@@ -323,6 +331,15 @@
         const phoneInput = document.querySelector("#phone");
         const messageInput = document.querySelector("#message");
         const formSubmitButton = document.querySelector("#form-submit");
+
+        const messageCharactersNumber = document.querySelector(
+          "#number-of-characters"
+        );
+
+        messageInput.addEventListener("input", (e) => {
+          const { value } = e.target;
+          messageCharactersNumber.textContent = value.length;
+        });
 
         const toggleErrorMessage = () => {
           errorModal.classList.toggle("hidden");
@@ -360,7 +377,7 @@
 
           if (!regex.test(input.value)) {
             const paragraph =
-              "Ім'я має містити лише Українські або Англійські літери.";
+              "Ім'я має містити лише Українські або Англійські літери. ";
 
             return {
               valid: false,
@@ -379,7 +396,7 @@
 
           if (!regex.test(input.value)) {
             const paragraph =
-              "Електронна пошта має бути у форматі example@company.com.";
+              "Електронна пошта має бути у форматі example@company.com. ";
 
             return {
               valid: false,
@@ -398,7 +415,7 @@
 
           if (!regex.test(input.value)) {
             const paragraph =
-              "Телефон має містити лише цифри, пробіли або знаки +, -, ().";
+              "Телефон має містити лише цифри, пробіли або знаки +, -, (). ";
 
             return {
               valid: false,
@@ -419,17 +436,17 @@
           const nameResults = validateNameInput(nameInput);
           const nameValid = nameResults.valid;
           const nameMessage = nameResults.message;
-          errorParagraphMessage += nameMessage + "\n";
+          errorParagraphMessage += nameMessage;
 
           const emailResults = validateEmail(emailInput);
           const emailValid = emailResults.valid;
           const emailMessage = emailResults.message;
-          errorParagraphMessage += emailMessage + "\n";
+          errorParagraphMessage += emailMessage;
 
           const phoneResults = validatePhone(phoneInput);
           const phoneValid = phoneResults.valid;
           const phoneMessage = phoneResults.message;
-          errorParagraphMessage += phoneMessage + "\n";
+          errorParagraphMessage += phoneMessage;
 
           let inputsEmpty = false;
 
