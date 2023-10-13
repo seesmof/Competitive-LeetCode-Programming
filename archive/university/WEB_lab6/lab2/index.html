@@ -7,7 +7,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="shortcut icon" href="./img/favicon.png" type="image/x-icon" />
-    <script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio,line-clamp"></script>
+    <link rel="stylesheet" href="./css/base.css" />
+    <link rel="stylesheet" href="./css/classes.css" />
+    <link rel="stylesheet" href="./css/custom.css" />
 
     <title>Резюме - Онищенко Олег</title>
     <meta name="description" content="Це сторінка мого особистого резюме." />
@@ -15,27 +17,6 @@
       name="keywords"
       content="резюме, онищенко олег, олег онищенко, олег онищенко резюме,"
     />
-
-    <style type="text/tailwindcss">
-      h2 {
-        @apply font-medium text-lg;
-      }
-      div > section {
-        @apply px-4 pt-4 grid;
-      }
-      div > section > h2 {
-        @apply pb-2;
-      }
-      ol ol {
-        @apply ml-2 grid gap-1;
-      }
-      .input-group {
-        @apply grid gap-1 w-full;
-      }
-      .input-group > label {
-        @apply font-medium;
-      }
-    </style>
   </head>
   <body class="bg-gradient-to-tr from-slate-100 to-slate-200 p-4 min-h-screen">
     <div
@@ -252,7 +233,7 @@
                   id="name"
                   placeholder="John Doe"
                   name="name"
-                  class="bg-slate-100 hover:bg-slate-200 focus:bg-slate-200 duration-300 rounded-md border-none"
+                  class="bg-slate-100 hover:bg-slate-200 focus:bg-slate-200 duration-300 rounded-md border-none py-2 px-4"
                   required
                 />
               </div>
@@ -265,7 +246,7 @@
                   id="email"
                   placeholder="example@company.com"
                   name="email"
-                  class="bg-slate-100 hover:bg-slate-200 focus:bg-slate-200 duration-300 rounded-md border-none"
+                  class="bg-slate-100 hover:bg-slate-200 focus:bg-slate-200 duration-300 rounded-md border-none py-2 px-4"
                   required
                 />
               </div>
@@ -278,7 +259,7 @@
                 placeholder="+13544110833"
                 name="phone"
                 required
-                class="bg-slate-100 hover:bg-slate-200 focus:bg-slate-200 duration-300 rounded-md border-none"
+                class="bg-slate-100 hover:bg-slate-200 focus:bg-slate-200 duration-300 rounded-md border-none py-2 px-4"
               />
             </div>
             <div class="input-group">
@@ -296,7 +277,7 @@
                   rows="4"
                   placeholder="Введіть ваше повідомлення тут..."
                   style="font-family: inherit"
-                  class="bg-slate-100 hover:bg-slate-200 focus:bg-slate-200 duration-300 rounded-md border-none resize-none w-full"
+                  class="bg-slate-100 hover:bg-slate-200 focus:bg-slate-200 duration-300 rounded-md border-none py-2 px-4 resize-none w-full"
                   required
                 ></textarea>
               </div>
