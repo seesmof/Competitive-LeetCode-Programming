@@ -242,11 +242,26 @@
         </section>
 
         <footer
-          class="grid rounded-md lg:rounded-lg xl:rounded-xl bg-white p-4"
+          class="grid gap-4 md:flex md:items-center md:justify-between rounded-md lg:rounded-lg xl:rounded-xl bg-white p-4"
         >
           <a href="./lab3/index.html">Onyshchenko - Resume Link</a>
+          <button
+            class="rounded-md bg-blue-500 hover:bg-blue-600 duration-300 font-medium text-white px-4 py-1"
+            id="quote-button"
+          >
+            Quote of the Day
+          </button>
         </footer>
       </div>
     </div>
+
+    <script type="module">
+      import { randomQuote } from "./js/randomQuote.js";
+
+      document.querySelector("#quote-button").addEventListener("click", () => {
+        const quote = randomQuote();
+        alert(quote);
+      });
+    </script>
   </body>
 </html>
