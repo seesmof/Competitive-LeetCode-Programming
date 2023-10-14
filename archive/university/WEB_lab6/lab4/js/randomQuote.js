@@ -1,12 +1,9 @@
 const quotes = [
-  "Don't cry because it's over, smile because it happened.",
-  "The greatest glory in living lies not in never falling, but in rising every time we fall.",
-  "The way to get started is to quit talking and begin doing.",
-  "Remember that not getting what you want is sometimes a wonderful stroke of luck.",
-  "If you tell the truth, you don't have to remember anything.",
-  "You only live once, but if you do it right, once is enough.",
-  "In the end, it's not the years in your life that count. It's the life in your years.",
-  "Be the change that you wish to see in the world.",
+  "The only way to do great work is to love what you do.",
+  "Believe you can and you're halfway there.",
+  "Don't watch the clock; do what it does. Keep going.",
+  "The harder you work for something, the greater you'll feel when you achieve it.",
+  "Dream it. Believe it. Build it.",
 ];
 
 const randomQuote = () => {

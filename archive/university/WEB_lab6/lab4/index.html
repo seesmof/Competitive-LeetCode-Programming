@@ -7,10 +7,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Overview - Python Wiki</title>
     <link rel="shortcut icon" href="./img/snake.png" type="image/x-icon" />
-    <!-- <link rel="stylesheet" href="./css/base.css" />
+    <link rel="stylesheet" href="./css/base.css" />
     <link rel="stylesheet" href="./css/classes.css" />
-    <link rel="stylesheet" href="./css/custom.css" /> -->
-    <script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio,line-clamp"></script>
+    <link rel="stylesheet" href="./css/custom.css" />
   </head>
   <body>
     <div class="min-h-screen w-full bg-slate-100 text-slate-900">
@@ -29,19 +28,18 @@
         </header>
 
         <div class="flex items-center gap-2">
-          <div
-            class="bg-white rounded-md h-full lg:rounded-lg xl:rounded-xl p-4 flex items-center justify-center"
+          <button
+            class="bg-white active:bg-slate-50 rounded-md h-full lg:rounded-lg xl:rounded-xl p-4 flex items-center justify-center"
+            id="navbar-toggle-button"
           >
-            <button>
-              <img
-                src="./img/menu.png"
-                alt="menu icon image"
-                class="w-6 h-6 object-contain"
-              />
-            </button>
-          </div>
+            <img
+              src="./img/menu.png"
+              alt="menu icon image"
+              class="w-6 h-6 object-contain"
+            />
+          </button>
           <nav
-            class="bg-white rounded-md lg:rounded-lg xl:rounded-xl p-4 flex items-center"
+            class="navbar bg-white rounded-md lg:rounded-lg xl:rounded-xl p-4 flex items-center flex-1"
           >
             <a
               href="./index.html"
@@ -321,6 +319,7 @@
       </div>
     </div>
 
+    <script src="./js/toggleNavbar.js"></script>
     <script type="module">
       import { randomQuote } from "./js/randomQuote.js";
 
