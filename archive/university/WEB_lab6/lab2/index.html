@@ -1,4 +1,4 @@
-<!-- index.html -->
+<!-- index.html task 1 -->
 
 <!DOCTYPE html>
 <html lang="uk">
@@ -452,13 +452,11 @@
             addRedBackground(phoneInput);
           }
 
-          if (!inputsEmpty) {
-            if (!nameValid || !emailValid || !phoneValid) {
-              errorParagraph.textContent = errorParagraphMessage;
-              toggleErrorMessage();
-            } else {
-              clearInputs();
-            }
+          if (!nameValid || !emailValid || !phoneValid) {
+            errorParagraph.textContent = errorParagraphMessage;
+            toggleErrorMessage();
+          } else if (!inputsEmpty) {
+            clearInputs();
           }
         });
 

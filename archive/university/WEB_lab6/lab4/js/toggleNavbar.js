@@ -1,3 +1,5 @@
+// toggleNavbar.js task 2
+
 document
   .querySelector("#navbar-toggle-button")
   .addEventListener("click", () => {
