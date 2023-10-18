@@ -1,4 +1,5 @@
-// toggleNavbar.js task 2
+// toggleNavbar.js
+
 $("#navbar-toggle-button").click(function () {
   $(".navbar").toggleClass("hidden");
 });

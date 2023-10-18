@@ -1,4 +1,5 @@
-// randomQuotes.js task 3
+// randomQuotes.js
+
 const quotes = [
   "The only way to do great work is to love what you do.",
   "Believe you can and you're halfway there.",
