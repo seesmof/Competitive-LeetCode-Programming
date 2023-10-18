@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="./css/base.css" />
     <link rel="stylesheet" href="./css/classes.css" />
     <link rel="stylesheet" href="./css/custom.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 
     <title>Резюме - Онищенко Олег</title>
     <meta name="description" content="Це сторінка мого особистого резюме." />
@@ -303,177 +304,175 @@
       </div>
 
       <script>
-        const errorModal = document.querySelector("#error-modal");
-        let errorParagraph = document.querySelector("#error-paragraph");
-        const errorButton = document.querySelector("#error-dismiss");
+        $(document).ready(function () {
+          const errorModal = $("#error-modal");
 
-        const nameInput = document.querySelector("#name");
-        const emailInput = document.querySelector("#email");
-        const phoneInput = document.querySelector("#phone");
-        const messageInput = document.querySelector("#message");
-        const formSubmitButton = document.querySelector("#form-submit");
+          $(window).on("load", function () {
+            errorModal.addClass("hidden");
+          });
 
-        const messageCharactersNumber = document.querySelector(
-          "#number-of-characters"
-        );
+          const nameInput = $("#name");
+          const emailInput = $("#email");
+          const phoneInput = $("#phone");
+          const messageInput = $("#message");
 
-        messageInput.addEventListener("input", (e) => {
-          const { value } = e.target;
-          messageCharactersNumber.textContent = value.length;
-        });
+          messageInput.on("input", function (e) {
+            var value = $(this).val();
+            $("#number-of-characters").text(value.length);
+          });
 
-        const toggleErrorMessage = () => {
-          errorModal.classList.toggle("hidden");
-        };
+          const toggleErrorMessage = () => {
+            errorModal.toggleClass("hidden");
+          };
 
-        const clearInputs = () => {
-          nameInput.value = "";
-          emailInput.value = "";
-          phoneInput.value = "";
-          messageInput.value = "";
-        };
+          const clearInputs = () => {
+            nameInput.val("");
+            emailInput.val("");
+            phoneInput.val("");
+            $("#message").val("");
+          };
 
-        const addRedBorder = (input) => {
-          input.classList.remove("border-none");
-          input.classList.add("border-red-500", "border-2");
-        };
+          const addRedBorder = (input) => {
+            $(input)
+              .removeClass("border-none")
+              .addClass("border-red-500 border-2");
+          };
 
-        const removeRedBorder = (input) => {
-          input.classList.remove("border-red-500", "border-2");
-          input.classList.add("border-none");
-        };
+          const removeRedBorder = (input) => {
+            $(input)
+              .removeClass("border-red-500 border-2")
+              .addClass("border-none");
+          };
 
-        const addRedBackground = (input) => {
-          input.classList.remove("bg-slate-100");
-          input.classList.add("bg-red-200");
-        };
+          const addRedBackground = (input) => {
+            $(input).removeClass("bg-slate-100");
+            $(input).addClass("bg-red-200");
+          };
 
-        const removeRedBackground = (input) => {
-          input.classList.remove("bg-red-200");
-          input.classList.add("bg-slate-100");
-        };
+          const removeRedBackground = (input) => {
+            $(input).removeClass("bg-red-200");
+            $(input).addClass("bg-slate-100");
+          };
 
-        const validateName = (input) => {
-          const regex = /^[a-zA-Zа-яА-ЯіІїЇєЄґҐ\s]+$/;
+          const validateName = () => {
+            const regex = /^[a-zA-Zа-яА-ЯіІїЇєЄґҐ\s]+$/;
 
-          if (!regex.test(input.value)) {
-            const paragraph =
-              "Ім'я має містити лише Українські або Англійські літери.";
+            if (!regex.test(nameInput.val())) {
+              const paragraph =
+                "Ім'я має містити лише Українські або Англійські літери.";
 
-            return {
-              valid: false,
-              message: paragraph,
-            };
-          } else {
-            return {
-              valid: true,
-              message: "",
-            };
-          }
-        };
+              return {
+                valid: false,
+                message: paragraph,
+              };
+            } else {
+              return {
+                valid: true,
+                message: "",
+              };
+            }
+          };
 
-        const validateEmail = (input) => {
-          const regex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+          const validateEmail = () => {
+            const regex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
 
-          if (!regex.test(input.value)) {
-            const paragraph =
-              "Електронна пошта має бути у форматі example@company.com.";
+            if (!regex.test(emailInput.val())) {
+              const paragraph =
+                "Електронна пошта має бути у форматі example@company.com.";
 
-            return {
-              valid: false,
-              message: paragraph,
-            };
-          } else {
-            return {
-              valid: true,
-              message: "",
-            };
-          }
-        };
+              return {
+                valid: false,
+                message: paragraph,
+              };
+            } else {
+              return {
+                valid: true,
+                message: "",
+              };
+            }
+          };
 
-        const validatePhone = (input) => {
-          const regex = /^[\s\d()+-]+$/;
+          const validatePhone = () => {
+            const regex = /^[\s\d()+-]+$/;
 
-          if (!regex.test(input.value)) {
-            const paragraph =
-              "Телефон має містити лише цифри, пробіли або знаки +, -, ().";
+            if (!regex.test(phoneInput.val())) {
+              const paragraph =
+                "Телефон має містити лише цифри, пробіли або знаки +, -, ().";
 
-            return {
-              valid: false,
-              message: paragraph,
-            };
-          } else {
-            return {
-              valid: true,
-              message: "",
-            };
-          }
-        };
+              return {
+                valid: false,
+                message: paragraph,
+              };
+            } else {
+              return {
+                valid: true,
+                message: "",
+              };
+            }
+          };
 
-        formSubmitButton.addEventListener("click", (event) => {
-          event.preventDefault();
+          $("#form-submit").on("click", function (event) {
+            event.preventDefault();
 
-          const nameResults = validateName(nameInput);
-          const nameValid = nameResults.valid;
-          const nameMessage = nameResults.message;
+            var nameResults = validateName(nameInput);
+            var nameValid = nameResults.valid;
+            var nameMessage = nameResults.message;
 
-          const emailResults = validateEmail(emailInput);
-          const emailValid = emailResults.valid;
-          const emailMessage = emailResults.message;
+            var emailResults = validateEmail(emailInput);
+            var emailValid = emailResults.valid;
+            var emailMessage = emailResults.message;
 
-          const phoneResults = validatePhone(phoneInput);
-          const phoneValid = phoneResults.valid;
-          const phoneMessage = phoneResults.message;
+            var phoneResults = validatePhone(phoneInput);
+            var phoneValid = phoneResults.valid;
+            var phoneMessage = phoneResults.message;
 
-          let inputsEmpty = false;
-          const errorParagraphMessage = `${nameMessage} ${emailMessage} ${phoneMessage}`;
+            var inputsEmpty = false;
+            var errorParagraphMessage = `${nameMessage} ${emailMessage} ${phoneMessage}`;
+            console.log(errorParagraphMessage);
 
-          if (nameInput.value === "") {
-            addRedBorder(nameInput);
-            inputsEmpty = true;
-          } else if (!nameValid) {
-            addRedBorder(nameInput);
-            addRedBackground(nameInput);
-          }
+            if (nameInput.val() === "") {
+              addRedBorder(nameInput);
+              inputsEmpty = true;
+            } else if (!nameValid) {
+              addRedBorder(nameInput);
+              addRedBackground(nameInput);
+            }
 
-          if (emailInput.value === "") {
-            addRedBorder(emailInput);
-            inputsEmpty = true;
-          } else if (!emailValid) {
-            addRedBorder(emailInput);
-            addRedBackground(emailInput);
-          }
+            if (emailInput.val() === "") {
+              addRedBorder(emailInput);
+              inputsEmpty = true;
+            } else if (!emailValid) {
+              addRedBorder(emailInput);
+              addRedBackground(emailInput);
+            }
 
-          if (phoneInput.value === "") {
-            addRedBorder(phoneInput);
-            inputsEmpty = true;
-          } else if (!phoneValid) {
-            addRedBorder(phoneInput);
-            addRedBackground(phoneInput);
-          }
+            if (phoneInput.val() === "") {
+              addRedBorder(phoneInput);
+              inputsEmpty = true;
+            } else if (!phoneValid) {
+              addRedBorder(phoneInput);
+              addRedBackground(phoneInput);
+            }
 
-          if (!nameValid || !emailValid || !phoneValid) {
-            errorParagraph.textContent = errorParagraphMessage;
+            if (!nameValid || !emailValid || !phoneValid) {
+              $("#error-paragraph").text(errorParagraphMessage);
+              toggleErrorMessage();
+            } else if (!inputsEmpty) {
+              clearInputs();
+            }
+          });
+
+          $("#error-dismiss").on("click", function () {
             toggleErrorMessage();
-          } else if (!inputsEmpty) {
+            removeRedBorder(nameInput);
+            removeRedBackground(nameInput);
+            removeRedBorder(emailInput);
+            removeRedBackground(emailInput);
+            removeRedBorder(phoneInput);
+            removeRedBackground(phoneInput);
             clearInputs();
-          }
+          });
         });
-
-        errorButton.addEventListener("click", () => {
-          toggleErrorMessage();
-          removeRedBorder(nameInput);
-          removeRedBackground(nameInput);
-          removeRedBorder(emailInput);
-          removeRedBackground(emailInput);
-          removeRedBorder(phoneInput);
-          removeRedBackground(phoneInput);
-          clearInputs();
-        });
-
-        window.onload = () => {
-          errorModal.classList.add("hidden");
-        };
       </script>
     </main>
   </body>
