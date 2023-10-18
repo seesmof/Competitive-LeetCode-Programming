@@ -1,5 +1,4 @@
 // randomQuotes.js task 3
-
 const quotes = [
   "The only way to do great work is to love what you do.",
   "Believe you can and you're halfway there.",
@@ -9,7 +8,7 @@ const quotes = [
 ];
 
 const randomQuote = () => {
-  const index = Math.floor($.random() * quotes.length);
+  const index = Math.floor(Math.random() * quotes.length);
   return quotes[index];
 };
 
