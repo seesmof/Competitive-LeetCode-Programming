@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="./css/classes.css" />
     <link rel="stylesheet" href="./css/custom.css" />
     <link rel="shortcut icon" href="./img/snake.png" type="image/x-icon" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
   </head>
   <body>
     <div class="min-h-screen w-full bg-slate-100 text-slate-900">
@@ -255,9 +256,11 @@
     <script type="module">
       import { randomQuote } from "./js/randomQuote.js";
 
-      document.querySelector("#quote-button").addEventListener("click", () => {
-        const quote = randomQuote();
-        alert(quote);
+      $(document).ready(function () {
+        $("#quote-button").on("click", function () {
+          const quote = randomQuote();
+          alert(quote);
+        });
       });
     </script>
   </body>
