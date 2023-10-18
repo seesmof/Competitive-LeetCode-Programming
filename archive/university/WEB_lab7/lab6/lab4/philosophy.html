@@ -1,0 +1,280 @@
+<!-- philosophy.html -->
+
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Philosophy - Python Wiki</title>
+    <link rel="stylesheet" href="./css/base.css" />
+    <link rel="stylesheet" href="./css/classes.css" />
+    <link rel="stylesheet" href="./css/custom.css" />
+    <link rel="shortcut icon" href="./img/snake.png" type="image/x-icon" />
+  </head>
+  <body>
+    <div class="min-h-screen w-full bg-slate-100 text-slate-900">
+      <div class="mx-auto grid max-w-6xl gap-4 p-4">
+        <header
+          class="flex items-center justify-between rounded-md lg:rounded-lg xl:rounded-xl bg-white p-4"
+        >
+          <a href="./index.html" class="text-lg font-medium">Python Wiki</a>
+          <a href="./lab3/index.html" title="View resume">
+            <img
+              src="./img/cv.png"
+              alt="resume logo image link"
+              class="h-6 w-6"
+            />
+          </a>
+        </header>
+
+        <div class="flex items-center gap-2">
+          <button
+            class="bg-white active:bg-slate-50 rounded-md h-full lg:rounded-lg xl:rounded-xl p-4 flex items-center justify-center"
+            id="navbar-toggle-button"
+          >
+            <img
+              src="./img/menu.png"
+              alt="menu icon image"
+              class="w-6 h-6 object-contain"
+            />
+          </button>
+          <nav
+            class="navbar bg-white rounded-md lg:rounded-lg xl:rounded-xl p-4 flex items-center flex-1"
+          >
+            <a
+              href="./index.html"
+              title="Overview"
+              class="flex items-start gap-1.5 navbar-link-container rounded-md px-2 py-1 cursor-pointer"
+            >
+              <img
+                src="./img/overview.png"
+                alt="section icon image"
+                class="w-6 h-6"
+              />
+              <span class="hidden sm:block">Overview</span>
+            </a>
+            <a
+              href="./history.html"
+              title="History"
+              class="flex items-start gap-1.5 navbar-link-container rounded-md px-2 py-1 cursor-pointer"
+              ><img
+                src="./img/history.png"
+                alt="section icon image"
+                class="w-6 h-6"
+              />
+              <span class="hidden sm:block">History</span>
+            </a>
+            <a
+              href="./advantages.html"
+              title="Advantages"
+              class="flex items-start gap-1.5 navbar-link-container rounded-md px-2 py-1 cursor-pointer"
+            >
+              <img
+                src="./img/advantages.png"
+                alt="section icon image"
+                class="w-6 h-6"
+              />
+              <span class="hidden sm:block">Advantages</span>
+            </a>
+            <a
+              href="./philosophy.html"
+              title="Philosophy"
+              class="flex items-start gap-1.5 navbar-link-container rounded-md px-2 py-1 cursor-pointer font-medium"
+            >
+              <img
+                src="./img/philosophy.png"
+                alt="section icon image"
+                class="w-6 h-6"
+              />
+              <span class="hidden sm:block">Philosophy</span>
+            </a>
+            <a
+              href="./examples.html"
+              title="Code examples"
+              class="flex items-start gap-1.5 navbar-link-container rounded-md px-2 py-1 cursor-pointer"
+            >
+              <img
+                src="./img/apps.png"
+                alt="section icon image"
+                class="w-6 h-6"
+              />
+              <span class="hidden sm:block">Apps</span>
+            </a>
+          </nav>
+        </div>
+
+        <section class="grid gap-4 md:flex md:flex-row-reverse">
+          <div class="grid gap-4 md:flex md:flex-col md:w-[17rem] lg:w-[20rem]">
+            <nav
+              class="grid rounded-md lg:rounded-lg xl:rounded-xl bg-white p-4 lg:p-5"
+            >
+              <h2 class="pb-2">Table of Contents</h2>
+              <ol>
+                <li><a href="#zen-of-python">Zen of Python</a></li>
+                <li><a href="#readability-counts">Readability Counts</a></li>
+                <li>
+                  <a href="#simple-is-better-than-complex"
+                    >Simple is Better Than Complex</a
+                  >
+                </li>
+                <li>
+                  <a href="#explicit-is-better-than-implicit"
+                    >Explicit is Better Than Implicit</a
+                  >
+                </li>
+                <li>
+                  <a href="#community-and-collaboration"
+                    >Community and Collaboration</a
+                  >
+                </li>
+                <li>
+                  <a href="#practicality-beats-purity"
+                    >Practicality Beats Purity</a
+                  >
+                </li>
+              </ol>
+            </nav>
+
+            <aside
+              class="grid rounded-md lg:rounded-lg xl:rounded-xl bg-white p-4 lg:p-5"
+            >
+              <div class="flex items-center gap-2 pb-3">
+                <img
+                  src="./img/philosophy.png"
+                  alt="python logo image"
+                  class="h-6 w-6"
+                />
+                <h2 class="text-xl font-medium">Philosophy of Python</h2>
+              </div>
+
+              <ul>
+                <li><strong>Creator:</strong> Guido van Rossum</li>
+                <li><strong>Year of Origin:</strong> 1991</li>
+                <li>
+                  <strong>Design Philosophy:</strong> Readability, Simplicity,
+                  Explicit is better than implicit
+                </li>
+                <li><strong>Key Principles:</strong> Zen of Python (PEP 20)</li>
+                <li>
+                  <strong>Notable Quote:</strong> "There should be one-- and
+                  preferably only one --obvious way to do it."
+                </li>
+                <li>
+                  <strong>Official Python Documentation:</strong>
+                  <a href="https://docs.python.org/3/">docs.python.org/3</a>
+                </li>
+              </ul>
+            </aside>
+          </div>
+
+          <main
+            class="grid rounded-md lg:rounded-lg xl:rounded-xl bg-white p-4 lg:p-5 flex-1"
+          >
+            <h1>Python Philosophy</h1>
+
+            <h2 class="first-heading">Introduction</h2>
+            <p>
+              Python is not just a programming language; it also embodies a set
+              of guiding principles and philosophies that shape its design and
+              usage. This quick reference provides an overview of the key
+              philosophies that define Python's ethos.
+            </p>
+
+            <h2 id="zen-of-python">Zen of Python</h2>
+            <p>
+              <strong>The Zen of Python</strong>: A collection of guiding
+              aphorisms that capture Python's design philosophy and principles.
+            </p>
+            <p>
+              <strong>Readability Counts</strong>: Python code should be easy to
+              read and understand, even by those who didn't write it.
+            </p>
+
+            <h2 id="readability-counts">Readability Counts</h2>
+            <p>
+              <strong>Readability</strong>: Python's emphasis on clean and
+              readable code makes it easier to maintain and collaborate on
+              projects.
+            </p>
+            <p>
+              <strong>Code as Communication</strong>: Python code should
+              communicate its purpose clearly, making it accessible to others.
+            </p>
+
+            <h2 id="simple-is-better-than-complex">
+              Simple is Better Than Complex
+            </h2>
+            <p>
+              <strong>Simplicity</strong>: Python values simplicity in design
+              and implementation, favoring straightforward solutions over
+              complex ones.
+            </p>
+            <p>
+              <strong>Minimize Cognitive Load</strong>: Simple code reduces
+              cognitive load, making it easier for developers to understand and
+              modify.
+            </p>
+
+            <h2 id="explicit-is-better-than-implicit">
+              Explicit is Better Than Implicit
+            </h2>
+            <p>
+              <strong>Clarity</strong>: Python encourages explicit code that
+              leaves no room for ambiguity or hidden behavior.
+            </p>
+            <p>
+              <strong>Obviousness</strong>: Code should be obvious in its intent
+              and actions, minimizing surprises.
+            </p>
+
+            <h2 id="community-and-collaboration">
+              Community and Collaboration
+            </h2>
+            <p>
+              <strong>Community</strong>: Python's community-driven development
+              fosters collaboration, knowledge sharing, and support.
+            </p>
+            <p>
+              <strong>Open Source</strong>: Python's open-source nature promotes
+              transparency, allowing anyone to contribute and improve the
+              language.
+            </p>
+
+            <h2 id="practicality-beats-purity">Practicality Beats Purity</h2>
+            <p>
+              <strong>Real-World Solutions</strong>: Python prioritizes
+              practical solutions that address real-world problems over rigid
+              purity.
+            </p>
+            <p>
+              <strong>Flexibility</strong>: Python's flexibility allows
+              developers to choose the best tool for the job.
+            </p>
+          </main>
+        </section>
+
+        <footer
+          class="grid gap-4 md:flex md:items-center md:justify-between rounded-md lg:rounded-lg xl:rounded-xl bg-white p-4"
+        >
+          <a href="./lab3/index.html">Onyshchenko - Resume Link</a>
+          <button
+            class="rounded-md bg-blue-500 hover:bg-blue-600 duration-300 font-medium text-white px-4 py-1"
+            id="quote-button"
+          >
+            Quote of the Day
+          </button>
+        </footer>
+      </div>
+    </div>
+
+    <script src="./js/toggleNavbar.js"></script>
+    <script type="module">
+      import { randomQuote } from "./js/randomQuote.js";
+
+      document.querySelector("#quote-button").addEventListener("click", () => {
+        const quote = randomQuote();
+        alert(quote);
+      });
+    </script>
+  </body>
+</html>

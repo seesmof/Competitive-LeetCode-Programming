@@ -1,0 +1,480 @@
+<!-- index.html task 1 -->
+
+<!DOCTYPE html>
+<html lang="uk">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="./img/favicon.png" type="image/x-icon" />
+    <link rel="stylesheet" href="./css/base.css" />
+    <link rel="stylesheet" href="./css/classes.css" />
+    <link rel="stylesheet" href="./css/custom.css" />
+
+    <title>Резюме - Онищенко Олег</title>
+    <meta name="description" content="Це сторінка мого особистого резюме." />
+    <meta
+      name="keywords"
+      content="резюме, онищенко олег, олег онищенко, олег онищенко резюме,"
+    />
+  </head>
+  <body class="bg-gradient-to-tr from-slate-100 to-slate-200 p-4 min-h-screen">
+    <div
+      id="error-modal"
+      class="inset-0 fixed bg-slate-900/40 flex items-start md:items-center p-4 justify-center z-50"
+    >
+      <div class="bg-white rounded-md p-4 grid max-w-[90vw] md:max-w-xl">
+        <h2>😡 Йой... Шось пішло не так</h2>
+
+        <p class="py-3" id="error-paragraph">...</p>
+
+        <div class="flex items-center justify-end">
+          <button
+            class="bg-red-500 text-white duration-300 hover:bg-red-600 rounded-md font-medium text-center py-2 px-4"
+            id="error-dismiss"
+          >
+            Закрити
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <main class="grid gap-4 max-w-6xl mx-auto">
+      <header class="flex items-center bg-white rounded-md p-4 justify-between">
+        <h1
+          class="font-medium text-lg lg:text-xl hover:underline hover:underline-offset-4"
+        >
+          <a href="./index.html">Резюме</a>
+        </h1>
+        <nav class="flex items-center">
+          <a
+            href="https://github.com/seesmof"
+            class="hover:bg-slate-50 px-2 py-1 duration-300 rounded-md"
+            title="Open Github profile"
+          >
+            <img
+              class="w-6 h-6 object-contain"
+              src="https://cdn-icons-png.flaticon.com/512/37/37819.png"
+              alt="github icon"
+            />
+          </a>
+          <a
+            href="mailto:seesmwork@gmail.com"
+            class="hover:bg-slate-50 px-2 py-1 duration-300 rounded-md"
+            title="Send an email"
+          >
+            <img
+              class="w-6 h-6 object-contain"
+              src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3d/Envelope_font_awesome.svg/1200px-Envelope_font_awesome.svg.png"
+              alt="email icon"
+            />
+          </a>
+        </nav>
+      </header>
+      <div class="rounded-md bg-white overflow-hidden grid pb-4">
+        <img
+          src="./img/logo.jpg"
+          alt="personal logo image"
+          class="object-cover max-h-32 lg:max-h-64 w-full"
+        />
+        <section>
+          <h2>Особисті дані</h2>
+          <p>Прізвище: Онищенко</p>
+          <p>Ім&#39;я: Олег</p>
+          <p>По батькові: Антонович</p>
+          <p>Дата народження: 21.09.2005</p>
+        </section>
+        <section>
+          <h2>Освіта</h2>
+          <ul class="grid gap-2">
+            <li>
+              <h3 class="font-medium">
+                Національний університет &quot;Запорізька політехніка&quot;
+              </h3>
+              <p class="pt-2">Факультет Комп&#39;ютерних наук та технологій</p>
+              <p class="pb-2">Інженерія програмного забезпечення</p>
+              <em>2022 - 2026</em>
+            </li>
+            <li>
+              <h3 class="py-2 font-medium">Запорізька гімназія №47</h3>
+              <p class="pb-2">Одинадцять класів шкільної освіти</p>
+              <em>2011 - 2022</em>
+            </li>
+          </ul>
+        </section>
+        <section>
+          <h2>Професійні навички</h2>
+          <ol class="grid gap-2">
+            <li>Загальний рівень володіння комп&#39;ютером - високий</li>
+            <li>
+              Відомі офісні програми -
+              <ol>
+                <li>
+                  Microsoft Office
+                  <p>Рівень володіння - високий</p>
+                </li>
+                <li>
+                  Adobe Photoshop
+                  <p>Рівень володіння - середній</p>
+                </li>
+                <li>
+                  Figma
+                  <p>Рівень володіння - низький</p>
+                </li>
+                <li>
+                  Canva
+                  <p>Рівень володіння - середній</p>
+                </li>
+              </ol>
+            </li>
+            <li>
+              Відомі середовища розробки -
+              <ol>
+                <li>
+                  Microsoft Visual Studio
+                  <p>Рівень володіння - низький</p>
+                </li>
+                <li>
+                  Microsoft Visual Studio Code
+                  <p>Рівень володіння - високий</p>
+                </li>
+                <li>
+                  Sublime Text
+                  <p>Рівень володіння - середній</p>
+                </li>
+                <li>
+                  Notepad++
+                  <p>Рівень володіння - високий</p>
+                </li>
+              </ol>
+            </li>
+            <li>
+              Мови програмування -
+              <ol>
+                <li>TypeScript</li>
+                <li>Python</li>
+                <li>C++</li>
+              </ol>
+            </li>
+          </ol>
+        </section>
+        <section id="contacts">
+          <article>
+            <h2 class="pb-2">Контактна інформація</h2>
+            <p>Мобільний телефон: +380680077147</p>
+            <p>
+              Електронна пошта:
+              <a href="mailto:seesmwork@gmail.com">seesmwork@gmail.com</a>
+            </p>
+            <p>
+              Посилання на Github:
+              <a href="https://github.com/seesmof">seesmof</a>
+            </p>
+          </article>
+          <article>
+            <h3 class="py-2 font-medium">Соціальні мережі</h3>
+            <div id="social" class="flex items-center">
+              <a
+                href="https://github.com/seesmof"
+                class="px-2 py-1 hover:bg-slate-50 rounded-md"
+                title="Open Twitter profile"
+                target="_self"
+              >
+                <img
+                  src="https://www.svgrepo.com/show/11841/twitter.svg"
+                  alt="Twitter icon"
+                  class="h-5 w-5 object-contain"
+                />
+              </a>
+              <a
+                href="https://github.com/seesmof"
+                class="px-2 py-1 hover:bg-slate-50 rounded-md"
+                title="Open LinkedIn profile"
+              >
+                <img
+                  src="https://www.svgrepo.com/show/144550/linkedin.svg"
+                  alt="linked in icon"
+                  class="h-5 w-5 object-contain"
+                />
+              </a>
+              <a
+                href="https://github.com/seesmof"
+                class="px-2 py-1 hover:bg-slate-50 rounded-md"
+                title="Open Medium profile"
+              >
+                <img
+                  src="https://www.svgrepo.com/show/354057/medium-icon.svg"
+                  alt="Medium icon"
+                  class="h-5 w-5 object-contain"
+                />
+              </a>
+              <a
+                href="https://github.com/seesmof"
+                class="px-2 py-1 hover:bg-slate-50 rounded-md"
+                title="Open Reddit profile"
+              >
+                <img
+                  src="https://cdn-icons-png.flaticon.com/512/1051/1051330.png"
+                  alt="Reddit icon"
+                  class="h-5 w-5 object-contain"
+                />
+              </a>
+            </div>
+          </article>
+        </section>
+        <section>
+          <h2>Контактна форма</h2>
+          <form method="post" class="grid gap-3">
+            <div class="md:flex grid gap-3">
+              <div class="input-group">
+                <label for="name" class="required-label"> Ім&#39;я </label>
+                <input
+                  type="text"
+                  id="name"
+                  placeholder="John Doe"
+                  name="name"
+                  class="bg-slate-100 hover:bg-slate-200 focus:bg-slate-200 duration-300 rounded-md border-none py-2 px-4"
+                  required
+                />
+              </div>
+              <div class="input-group">
+                <label for="email" class="required-label">
+                  Електронна пошта
+                </label>
+                <input
+                  type="email"
+                  id="email"
+                  placeholder="example@company.com"
+                  name="email"
+                  class="bg-slate-100 hover:bg-slate-200 focus:bg-slate-200 duration-300 rounded-md border-none py-2 px-4"
+                  required
+                />
+              </div>
+            </div>
+            <div class="input-group">
+              <label for="phone"> Телефон </label>
+              <input
+                type="tel"
+                id="phone"
+                placeholder="+13544110833"
+                name="phone"
+                required
+                class="bg-slate-100 hover:bg-slate-200 focus:bg-slate-200 duration-300 rounded-md border-none py-2 px-4"
+              />
+            </div>
+            <div class="input-group">
+              <label for="message" class="required-label"> Повідомлення </label>
+              <div class="relative w-full">
+                <div
+                  id="number-of-characters"
+                  class="absolute bottom-2 right-2 flex items-end justify-end text-slate-500 font-medium"
+                >
+                  0
+                </div>
+                <textarea
+                  name="message"
+                  id="message"
+                  rows="4"
+                  placeholder="Введіть ваше повідомлення тут..."
+                  style="font-family: inherit"
+                  class="bg-slate-100 hover:bg-slate-200 focus:bg-slate-200 duration-300 rounded-md border-none py-2 px-4 resize-none w-full"
+                  required
+                ></textarea>
+              </div>
+            </div>
+            <button
+              type="submit"
+              class="bg-blue-500 hover:bg-blue-600 duration-300 text-slate-50 font-medium py-2 rounded-md"
+              id="form-submit"
+            >
+              Відправити
+            </button>
+          </form>
+        </section>
+        <section>
+          <hr class="hidden" />
+          <a
+            href="./table.html"
+            class="font-medium hover:underline hover:underline-offset-4"
+          >
+            Я вмію створювати таблиці
+          </a>
+        </section>
+      </div>
+
+      <script>
+        const errorModal = document.querySelector("#error-modal");
+        let errorParagraph = document.querySelector("#error-paragraph");
+        const errorButton = document.querySelector("#error-dismiss");
+
+        const nameInput = document.querySelector("#name");
+        const emailInput = document.querySelector("#email");
+        const phoneInput = document.querySelector("#phone");
+        const messageInput = document.querySelector("#message");
+        const formSubmitButton = document.querySelector("#form-submit");
+
+        const messageCharactersNumber = document.querySelector(
+          "#number-of-characters"
+        );
+
+        messageInput.addEventListener("input", (e) => {
+          const { value } = e.target;
+          messageCharactersNumber.textContent = value.length;
+        });
+
+        const toggleErrorMessage = () => {
+          errorModal.classList.toggle("hidden");
+        };
+
+        const clearInputs = () => {
+          nameInput.value = "";
+          emailInput.value = "";
+          phoneInput.value = "";
+          messageInput.value = "";
+        };
+
+        const addRedBorder = (input) => {
+          input.classList.remove("border-none");
+          input.classList.add("border-red-500", "border-2");
+        };
+
+        const removeRedBorder = (input) => {
+          input.classList.remove("border-red-500", "border-2");
+          input.classList.add("border-none");
+        };
+
+        const addRedBackground = (input) => {
+          input.classList.remove("bg-slate-100");
+          input.classList.add("bg-red-200");
+        };
+
+        const removeRedBackground = (input) => {
+          input.classList.remove("bg-red-200");
+          input.classList.add("bg-slate-100");
+        };
+
+        const validateName = (input) => {
+          const regex = /^[a-zA-Zа-яА-ЯіІїЇєЄґҐ\s]+$/;
+
+          if (!regex.test(input.value)) {
+            const paragraph =
+              "Ім'я має містити лише Українські або Англійські літери.";
+
+            return {
+              valid: false,
+              message: paragraph,
+            };
+          } else {
+            return {
+              valid: true,
+              message: "",
+            };
+          }
+        };
+
+        const validateEmail = (input) => {
+          const regex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+
+          if (!regex.test(input.value)) {
+            const paragraph =
+              "Електронна пошта має бути у форматі example@company.com.";
+
+            return {
+              valid: false,
+              message: paragraph,
+            };
+          } else {
+            return {
+              valid: true,
+              message: "",
+            };
+          }
+        };
+
+        const validatePhone = (input) => {
+          const regex = /^[\s\d()+-]+$/;
+
+          if (!regex.test(input.value)) {
+            const paragraph =
+              "Телефон має містити лише цифри, пробіли або знаки +, -, ().";
+
+            return {
+              valid: false,
+              message: paragraph,
+            };
+          } else {
+            return {
+              valid: true,
+              message: "",
+            };
+          }
+        };
+
+        formSubmitButton.addEventListener("click", (event) => {
+          event.preventDefault();
+
+          const nameResults = validateName(nameInput);
+          const nameValid = nameResults.valid;
+          const nameMessage = nameResults.message;
+
+          const emailResults = validateEmail(emailInput);
+          const emailValid = emailResults.valid;
+          const emailMessage = emailResults.message;
+
+          const phoneResults = validatePhone(phoneInput);
+          const phoneValid = phoneResults.valid;
+          const phoneMessage = phoneResults.message;
+
+          let inputsEmpty = false;
+          const errorParagraphMessage = `${nameMessage} ${emailMessage} ${phoneMessage}`;
+
+          if (nameInput.value === "") {
+            addRedBorder(nameInput);
+            inputsEmpty = true;
+          } else if (!nameValid) {
+            addRedBorder(nameInput);
+            addRedBackground(nameInput);
+          }
+
+          if (emailInput.value === "") {
+            addRedBorder(emailInput);
+            inputsEmpty = true;
+          } else if (!emailValid) {
+            addRedBorder(emailInput);
+            addRedBackground(emailInput);
+          }
+
+          if (phoneInput.value === "") {
+            addRedBorder(phoneInput);
+            inputsEmpty = true;
+          } else if (!phoneValid) {
+            addRedBorder(phoneInput);
+            addRedBackground(phoneInput);
+          }
+
+          if (!nameValid || !emailValid || !phoneValid) {
+            errorParagraph.textContent = errorParagraphMessage;
+            toggleErrorMessage();
+          } else if (!inputsEmpty) {
+            clearInputs();
+          }
+        });
+
+        errorButton.addEventListener("click", () => {
+          toggleErrorMessage();
+          removeRedBorder(nameInput);
+          removeRedBackground(nameInput);
+          removeRedBorder(emailInput);
+          removeRedBackground(emailInput);
+          removeRedBorder(phoneInput);
+          removeRedBackground(phoneInput);
+          clearInputs();
+        });
+
+        window.onload = () => {
+          errorModal.classList.add("hidden");
+        };
+      </script>
+    </main>
+  </body>
+</html>
