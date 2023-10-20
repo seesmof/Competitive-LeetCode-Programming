@@ -1,20 +1,23 @@
 <!-- table.html -->
+
 <!DOCTYPE html>
 <html lang="uk">
   <head>
-    <meta charset="utf-8" />
-    <meta content="IE=edge" http-equiv="X-UA-Compatible" />
-    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-    <link href="favicon.png" rel="shortcut icon" type="image/x-icon" />
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="favicon.png" type="image/x-icon" />
+
     <title>Таблиця - Онищенко Олег</title>
     <meta
-      content="Це сторінка таблиці мого особистого резюме."
       name="description"
+      content="Це сторінка таблиці мого особистого резюме."
     />
     <meta
-      content="таблиця резюме, онищенко олег, олег онищенко, олег онищенко таблиця резюме,"
       name="keywords"
+      content="таблиця резюме, онищенко олег, олег онищенко, олег онищенко таблиця резюме,"
     />
+
     <style>
       :root {
         --background: #eee;
@@ -138,7 +141,7 @@
       }
 
       table {
-        :collapse ;
+        border-collapse: collapse;
         width: 50%;
         font-size: 0.9rem;
       }
@@ -157,10 +160,10 @@
         transition-duration: 300ms;
         cursor: pointer;
       }
-      .cell:hover {
+      .cell:hover{
         background-color: #8e9dac;
       }
-      .cell:active {
+      .cell:active{
         background-color: rgb(189, 204, 218);
       }
     </style>
@@ -169,19 +172,19 @@
     <main>
       <header>
         <h1>
-          <a href="./index.html"> Резюме </a>
+          <a href="./index.html">Резюме</a>
         </h1>
         <nav>
           <a href="https://github.com/seesmof" title="Open Github profile">
             <img
-              alt="github icon"
               src="https://cdn-icons-png.flaticon.com/512/37/37819.png"
+              alt="github icon"
             />
           </a>
           <a href="mailto:seesmwork@gmail.com" title="Send an email">
             <img
-              alt="email icon"
               src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3d/Envelope_font_awesome.svg/1200px-Envelope_font_awesome.svg.png"
+              alt="email icon"
             />
           </a>
         </nav>
@@ -192,28 +195,29 @@
           <table>
             <thead>
               <tr>
-                <th cell="" headcell-1>anyway parts</th>
-                <th cell="" headcell-2>ocean size equator</th>
-                <th cell="" headcell-3>day in century</th>
+                <th class="cell headCell-1">anyway parts</th>
+                <th class="cell headCell-2">ocean size equator</th>
+                <th class="cell headCell-3">day in century</th>
+              </tr>
               </tr>
             </thead>
             <tbody>
               <tr>
-                <td bodycell-1 cell="" rowspan="2">
+                <td rowspan="2" class="cell bodyCell-1">
                   fell trail task store physical steam verb
                 </td>
-                <td bodycell-2 cell="">
+                <td class="cell bodyCell-2">
                   soldier above population figure basket soft compound
                 </td>
-                <td bodycell-3 cell="">
+                <td class="cell bodyCell-3">
                   after saddle once wish fox announced think thin bit
                 </td>
               </tr>
               <tr>
-                <td bodycell-4 cell="">
+                <td class="cell bodyCell-4">
                   spell attached happened look local coal blanket
                 </td>
-                <td bodycell-5 cell="">
+                <td class="cell bodyCell-5">
                   cow rough cut high nor broke bad than stock safe dry
                 </td>
               </tr>
