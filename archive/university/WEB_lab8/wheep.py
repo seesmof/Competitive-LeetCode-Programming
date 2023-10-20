@@ -1,21 +1,17 @@
-from bs4 import BeautifulSoup
 import os
+from bs4 import BeautifulSoup
 
-# specify the directory you want to start from
 rootDir = "D:/repos/leetcode-solutions/archive/university/WEB_lab8"
 
 for dirName, subdirList, fileList in os.walk(rootDir):
     for fname in fileList:
         if fname.endswith(".html"):
-            with open(os.path.join(dirName, fname), "r+") as f:
+            filePath = os.path.join(dirName, fname)
+            with open(filePath, "r+", encoding="utf-8") as f:
                 soup = BeautifulSoup(f, "html.parser")
-
-                # Remove all class attributes
                 for tag in soup():
-                    if "class" in tag.attrs:
-                        del tag.attrs["class"]
-
-                # Write the changes back to the file
+                    if tag.has_attr("class"):
+                        del tag["class"]
                 f.seek(0)
-                f.write(str(soup))
+                f.write(str(soup.prettify()))
                 f.truncate()
