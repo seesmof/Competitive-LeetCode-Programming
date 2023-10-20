@@ -1,374 +1,256 @@
 <!-- advantages.html -->
+
 <!DOCTYPE html>
-<html lang="en" scroll-smooth>
+<html lang="en" class="scroll-smooth">
   <head>
-    <meta charset="utf-8" />
-    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Advantages - Python Wiki</title>
-    <link
-      crossorigin="anonymous"
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"
-      integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65"
-      rel="stylesheet"
-    />
-    <script
-      crossorigin="anonymous"
-      defer=""
-      integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
-    ></script>
-    <link href="./img/snake.png" rel="shortcut icon" type="image/x-icon" />
+    <link rel="stylesheet" href="./css/base.css" />
+    <link rel="stylesheet" href="./css/classes.css" />
+    <link rel="stylesheet" href="./css/custom.css" />
+    <link rel="shortcut icon" href="./img/snake.png" type="image/x-icon" />
   </head>
   <body>
-    <div bg-slate-100="" min-h-screen="" text-slate-900 w-full="">
-      <div gap-4="" grid="" max-w-6xl="" mx-auto="" p-4>
+    <div class="min-h-screen w-full bg-slate-100 text-slate-900">
+      <div class="mx-auto grid max-w-6xl gap-4 p-4">
         <header
-          bg-white=""
-          flex=""
-          items-center=""
-          justify-between=""
-          lg:rounded-lg=""
-          p-4
-          rounded-md=""
-          xl:rounded-xl=""
+          class="flex items-center justify-between rounded-md lg:rounded-lg xl:rounded-xl bg-white p-4"
         >
-          <a font-medium href="./index.html" text-lg=""> Python Wiki </a>
+          <a href="./index.html" class="text-lg font-medium">Python Wiki</a>
           <a href="./lab3/index.html" title="View resume">
-            <img alt="resume logo image link" h-6="" src="./img/cv.png" w-6 />
+            <img
+              src="./img/cv.png"
+              alt="resume logo image link"
+              class="h-6 w-6"
+            />
           </a>
         </header>
-        <div flex="" gap-2 items-center="">
+
+        <div class="flex items-center gap-2">
           <button
-            active:bg-slate-50=""
-            bg-white=""
-            flex=""
-            h-full=""
+            class="bg-white active:bg-slate-50 rounded-md h-full lg:rounded-lg xl:rounded-xl p-4 flex items-center justify-center"
             id="navbar-toggle-button"
-            items-center=""
-            justify-center
-            lg:rounded-lg=""
-            p-4=""
-            rounded-md=""
-            xl:rounded-xl=""
           >
             <img
-              alt="menu icon image"
-              h-6=""
-              object-contain
               src="./img/menu.png"
-              w-6=""
+              alt="menu icon image"
+              class="w-6 h-6 object-contain"
             />
           </button>
           <nav
-            bg-white=""
-            flex=""
-            flex-1
-            items-center=""
-            lg:rounded-lg=""
-            navbar=""
-            p-4=""
-            rounded-md=""
-            xl:rounded-xl=""
+            class="navbar bg-white rounded-md lg:rounded-lg xl:rounded-xl p-4 flex items-center flex-1"
           >
             <a
-              cursor-pointer
-              flex=""
-              gap-1.5=""
               href="./index.html"
-              items-start=""
-              navbar-link-container=""
-              px-2=""
-              py-1=""
-              rounded-md=""
               title="Overview"
+              class="flex items-start gap-1.5 navbar-link-container rounded-md px-2 py-1 cursor-pointer"
             >
               <img
-                alt="section icon image"
-                h-6
                 src="./img/overview.png"
-                w-6=""
+                alt="section icon image"
+                class="w-6 h-6"
               />
-              <span hidden="" sm:block> Overview </span>
+              <span class="hidden sm:block">Overview</span>
             </a>
             <a
-              cursor-pointer
-              flex=""
-              gap-1.5=""
               href="./history.html"
-              items-start=""
-              navbar-link-container=""
-              px-2=""
-              py-1=""
-              rounded-md=""
               title="History"
-            >
-              <img
-                alt="section icon image"
-                h-6
+              class="flex items-start gap-1.5 navbar-link-container rounded-md px-2 py-1 cursor-pointer"
+              ><img
                 src="./img/history.png"
-                w-6=""
+                alt="section icon image"
+                class="w-6 h-6"
               />
-              <span hidden="" sm:block> History </span>
+              <span class="hidden sm:block">History</span>
             </a>
             <a
-              cursor-pointer=""
-              flex=""
-              font-medium
-              gap-1.5=""
               href="./advantages.html"
-              items-start=""
-              navbar-link-container=""
-              px-2=""
-              py-1=""
-              rounded-md=""
               title="Advantages"
+              class="flex items-start gap-1.5 navbar-link-container rounded-md px-2 py-1 cursor-pointer font-medium"
             >
               <img
-                alt="section icon image"
-                h-6
                 src="./img/advantages.png"
-                w-6=""
+                alt="section icon image"
+                class="w-6 h-6"
               />
-              <span hidden="" sm:block> Advantages </span>
+              <span class="hidden sm:block">Advantages</span>
             </a>
             <a
-              cursor-pointer
-              flex=""
-              gap-1.5=""
               href="./philosophy.html"
-              items-start=""
-              navbar-link-container=""
-              px-2=""
-              py-1=""
-              rounded-md=""
               title="Philosophy"
+              class="flex items-start gap-1.5 navbar-link-container rounded-md px-2 py-1 cursor-pointer"
             >
               <img
-                alt="section icon image"
-                h-6
                 src="./img/philosophy.png"
-                w-6=""
+                alt="section icon image"
+                class="w-6 h-6"
               />
-              <span hidden="" sm:block> Philosophy </span>
+              <span class="hidden sm:block">Philosophy</span>
             </a>
             <a
-              cursor-pointer
-              flex=""
-              gap-1.5=""
               href="./examples.html"
-              items-start=""
-              navbar-link-container=""
-              px-2=""
-              py-1=""
-              rounded-md=""
               title="Code examples"
+              class="flex items-start gap-1.5 navbar-link-container rounded-md px-2 py-1 cursor-pointer"
             >
-              <img alt="section icon image" h-6 src="./img/apps.png" w-6="" />
-              <span hidden="" sm:block> Apps </span>
+              <img
+                src="./img/apps.png"
+                alt="section icon image"
+                class="w-6 h-6"
+              />
+              <span class="hidden sm:block">Apps</span>
             </a>
           </nav>
         </div>
-        <section gap-4="" grid="" md:flex="" md:flex-row-reverse>
-          <div
-            gap-4=""
-            grid=""
-            lg:w-[20rem]
-            md:flex=""
-            md:flex-col=""
-            md:w-[17rem]=""
-          >
+
+        <section class="grid gap-4 md:flex md:flex-row-reverse">
+          <div class="grid gap-4 md:flex md:flex-col md:w-[17rem] lg:w-[20rem]">
             <nav
-              bg-white=""
-              grid=""
-              lg:p-5
-              lg:rounded-lg=""
-              p-4=""
-              rounded-md=""
-              xl:rounded-xl=""
+              class="grid rounded-md lg:rounded-lg xl:rounded-xl bg-white p-4 lg:p-5"
             >
-              <h2 pb-2>Table of Contents</h2>
+              <h2 class="pb-2">Table of Contents</h2>
               <ol>
+                <li><a href="#readability">Readability</a></li>
+                <li><a href="#versatility">Versatility</a></li>
+                <li><a href="#community-support">Community Support</a></li>
                 <li>
-                  <a href="#readability"> Readability </a>
+                  <a href="#vast-library-ecosystem">Vast Library Ecosystem</a>
                 </li>
-                <li>
-                  <a href="#versatility"> Versatility </a>
-                </li>
-                <li>
-                  <a href="#community-support"> Community Support </a>
-                </li>
-                <li>
-                  <a href="#vast-library-ecosystem"> Vast Library Ecosystem </a>
-                </li>
-                <li>
-                  <a href="#cross-platform"> Cross-Platform </a>
-                </li>
-                <li>
-                  <a href="#simplicity"> Simplicity </a>
-                </li>
+                <li><a href="#cross-platform">Cross-Platform</a></li>
+                <li><a href="#simplicity">Simplicity</a></li>
               </ol>
             </nav>
             <aside
-              bg-white=""
-              grid=""
-              lg:p-5
-              lg:rounded-lg=""
-              p-4=""
-              rounded-md=""
-              xl:rounded-xl=""
+              class="grid rounded-md lg:rounded-lg xl:rounded-xl bg-white p-4 lg:p-5"
             >
-              <div flex="" gap-2="" items-center="" pb-3>
+              <div class="flex items-center gap-2 pb-3">
                 <img
-                  alt="python logo image"
-                  h-6=""
                   src="./img/advantages.png"
-                  w-6
+                  alt="python logo image"
+                  class="h-6 w-6"
                 />
-                <h2 font-medium text-xl="">Advantages of Python</h2>
+                <h2 class="text-xl font-medium">Advantages of Python</h2>
               </div>
+
               <ul>
+                <li><strong>Creator:</strong> Guido van Rossum</li>
+                <li><strong>Year of Origin:</strong> 1991</li>
                 <li>
-                  <strong> Creator: </strong>
-                  Guido van Rossum
+                  <strong>Readability:</strong> Python's syntax promotes code
+                  readability.
                 </li>
                 <li>
-                  <strong> Year of Origin: </strong>
-                  1991
+                  <strong>Large Standard Library:</strong> Python has a
+                  comprehensive standard library.
                 </li>
                 <li>
-                  <strong> Readability: </strong>
-                  Python's syntax promotes code readability.
+                  <strong>Versatility:</strong> Python can be used for web
+                  development, data analysis, and more.
                 </li>
                 <li>
-                  <strong> Large Standard Library: </strong>
-                  Python has a comprehensive standard library.
-                </li>
-                <li>
-                  <strong> Versatility: </strong>
-                  Python can be used for web development, data analysis, and
-                  more.
-                </li>
-                <li>
-                  <strong> Official Documentation: </strong>
-                  <a href="https://docs.python.org/3/"> docs.python.org/3 </a>
+                  <strong>Official Documentation:</strong>
+                  <a href="https://docs.python.org/3/">docs.python.org/3</a>
                 </li>
               </ul>
             </aside>
           </div>
+
           <main
-            bg-white=""
-            flex-1
-            grid=""
-            lg:p-5=""
-            lg:rounded-lg=""
-            p-4=""
-            rounded-md=""
-            xl:rounded-xl=""
+            class="grid rounded-md lg:rounded-lg xl:rounded-xl bg-white p-4 lg:p-5 flex-1"
           >
             <h1>Python Advantages</h1>
-            <h2 first-heading>Introduction</h2>
+
+            <h2 class="first-heading">Introduction</h2>
             <p>
               Python is a versatile programming language known for its numerous
               advantages in various domains. This quick reference provides an
               overview of the key benefits of using Python.
             </p>
+
             <h2 id="readability">Readability</h2>
             <p>
-              <strong> Clear and Readable Syntax </strong>
-              : Python's syntax emphasizes readability and reduces the cost of
-              program maintenance.
+              <strong>Clear and Readable Syntax</strong>: Python's syntax
+              emphasizes readability and reduces the cost of program
+              maintenance.
             </p>
             <p>
-              <strong> Indentation-based Structure </strong>
-              : Python enforces code indentation, making the code structure
-              visually clear and consistent.
+              <strong>Indentation-based Structure</strong>: Python enforces code
+              indentation, making the code structure visually clear and
+              consistent.
             </p>
+
             <h2 id="versatility">Versatility</h2>
             <p>
-              <strong> General-Purpose Language </strong>
-              : Python can be used for a wide range of applications, including
-              web development, data analysis, machine learning, and more.
+              <strong>General-Purpose Language</strong>: Python can be used for
+              a wide range of applications, including web development, data
+              analysis, machine learning, and more.
             </p>
             <p>
-              <strong> Integration Capabilities </strong>
-              : Python easily integrates with other languages and tools,
-              facilitating complex projects.
+              <strong>Integration Capabilities</strong>: Python easily
+              integrates with other languages and tools, facilitating complex
+              projects.
             </p>
+
             <h2 id="community-support">Community Support</h2>
             <p>
-              <strong> Active Community </strong>
-              : Python has a large and active community of developers who
-              provide support, share knowledge, and create open-source
-              libraries.
+              <strong>Active Community</strong>: Python has a large and active
+              community of developers who provide support, share knowledge, and
+              create open-source libraries.
             </p>
             <p>
-              <strong> Documentation and Resources </strong>
-              : Abundant documentation and online resources are available for
-              Python users, making it easy to learn and troubleshoot.
+              <strong>Documentation and Resources</strong>: Abundant
+              documentation and online resources are available for Python users,
+              making it easy to learn and troubleshoot.
             </p>
+
             <h2 id="vast-library-ecosystem">Vast Library Ecosystem</h2>
             <p>
-              <strong> Rich Standard Library </strong>
-              : Python's standard library includes modules for various tasks,
-              reducing the need for external dependencies.
+              <strong>Rich Standard Library</strong>: Python's standard library
+              includes modules for various tasks, reducing the need for external
+              dependencies.
             </p>
             <p>
-              <strong> Third-Party Libraries </strong>
-              : Python boasts a vast ecosystem of third-party libraries and
-              frameworks for specific domains, enhancing productivity.
+              <strong>Third-Party Libraries</strong>: Python boasts a vast
+              ecosystem of third-party libraries and frameworks for specific
+              domains, enhancing productivity.
             </p>
+
             <h2 id="cross-platform">Cross-Platform</h2>
             <p>
-              <strong> Platform Independence </strong>
-              : Python code can run on multiple platforms without modification,
-              increasing portability.
+              <strong>Platform Independence</strong>: Python code can run on
+              multiple platforms without modification, increasing portability.
             </p>
             <p>
-              <strong> Support for Major Operating Systems </strong>
-              : Python supports Windows, macOS, Linux, and more.
+              <strong>Support for Major Operating Systems</strong>: Python
+              supports Windows, macOS, Linux, and more.
             </p>
+
             <h2 id="simplicity">Simplicity</h2>
             <p>
-              <strong> Minimalistic Syntax </strong>
-              : Python's clean and minimalistic syntax reduces the learning
-              curve for beginners.
+              <strong>Minimalistic Syntax</strong>: Python's clean and
+              minimalistic syntax reduces the learning curve for beginners.
             </p>
             <p>
-              <strong> Expressive and Concise Code </strong>
-              : Python allows developers to express complex ideas in fewer lines
-              of code.
+              <strong>Expressive and Concise Code</strong>: Python allows
+              developers to express complex ideas in fewer lines of code.
             </p>
           </main>
         </section>
+
         <footer
-          bg-white=""
-          gap-4=""
-          grid=""
-          lg:rounded-lg=""
-          md:flex=""
-          md:items-center=""
-          md:justify-between=""
-          p-4
-          rounded-md=""
-          xl:rounded-xl=""
+          class="grid gap-4 md:flex md:items-center md:justify-between rounded-md lg:rounded-lg xl:rounded-xl bg-white p-4"
         >
-          <a href="./lab3/index.html"> Onyshchenko - Resume Link </a>
+          <a href="./lab3/index.html">Onyshchenko - Resume Link</a>
           <button
-            bg-blue-500=""
-            duration-300=""
-            font-medium=""
-            hover:bg-blue-600=""
+            class="rounded-md bg-blue-500 hover:bg-blue-600 duration-300 font-medium text-white px-4 py-1"
             id="quote-button"
-            px-4=""
-            py-1
-            rounded-md=""
-            text-white=""
           >
             Quote of the Day
           </button>
         </footer>
       </div>
     </div>
+
     <script src="./js/toggleNavbar.js"></script>
     <script type="module">
       import { randomQuote } from "./js/randomQuote.js";
